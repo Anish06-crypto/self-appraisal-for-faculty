@@ -1,0 +1,74 @@
+{% extends 'base_hod.html' %}
+{% load static %}
+
+{% block title %}Department List{% endblock title %}
+
+{% block style %}
+
+  <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+  <style>
+            .card {
+                    margin: 0 auto; /* Added */
+                    float: none; /* Added */
+                    margin-bottom: 10px; /* Added */
+                }
+    </style>
+
+{% endblock style %}
+
+{% block content %}
+
+<div class="main-panel">
+  <div class="content">
+					<div class="container-fluid">
+						<h4 class="page-title"><b>{{ hod.Department }}<b></h4>
+						<div class="row">
+							<div class="col-md-3">
+								<div class="card card-stats card-success">
+								</div>
+							</div>
+  <div class="card">
+	<div class="card-header ">
+			<h4 class="card-title">Faculty List</h4>
+		</div>
+
+
+<div class="card-body">
+	<table class="table table-head-bg-primary table-striped table-hover">
+    <thead>
+        <tr>
+        <th style="width: 33%" >Name</th>
+        <th style="width: 34%" >Designation</th>
+        <th style="width: 33%" >Staff ID</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for staff in staffs %}
+        {% if hod.Department == staff.Department %}
+            {% if staff.Whether_HOD == False %}
+              {% if not staff.Present_Designation == "Principal" %}
+                <tr>
+                <td>{{ staff.Name }}</td>
+                <td>{{ staff.Present_Designation }}</td>
+                <td>{{ staff.Staff_ID }}</td>
+                </tr>
+              {% endif %}
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+    </tbody>
+    </table>
+</div>
+</div>
+</div>
+</div>
+
+    <div class="card" style="width: 13rem;">
+        <div class="card-body">
+            <h5 class="card-title justify-content-center"> Faculty Count : <b>{{ staffcount }}</b></h5>
+        </div>
+    </div>
+</div>
+</div>
+
+{% endblock content %}

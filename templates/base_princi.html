@@ -1,0 +1,149 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title>{% block title %}{% endblock title %}</title>
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+	<link rel="stylesheet" href="{% static 'adminassets/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+	<link rel="stylesheet" href="{% static 'adminassets/css/ready.css' %}">
+	<link rel="stylesheet" href="{% static 'adminassets/css/demo.css'%}">
+    {% block style %}{% endblock style %}
+</head>
+<body>
+	<div class="wrapper">
+		<div class="main-header">
+			<div class="logo-header">
+				<a href="/principal" class="logo">
+					Principal : {{ staff.Staff_ID }}
+				</a>
+				<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<button class="topbar-toggler more"><i class="la la-ellipsis-v"></i></button>
+			</div>
+			<nav class="navbar navbar-header navbar-expand-lg">
+				<div class="container-fluid">
+					<img src="{% static 'adminassets/img/mitlogo.jpeg'%}" alt="user-img" width="36" class="img-circle"/>
+					<span ><h5 class="align-items-center" style="padding-top: 0.7rem"> &nbsp;&nbsp;&nbsp; Maharaja Institute of Technology Mysore</h5></span>
+					<ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
+						<li class="nav-item dropdown">
+							<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false"> <img src="{% static 'adminassets/img/working.png'%}" alt="user-img" width="36" class="img-circle"><span >Profile</span></span> </a>
+							<ul class="dropdown-menu dropdown-user">
+								<li>
+									<div class="user-box">
+										<div class="u-img"><img src="{% static 'adminassets/img/working.png'%}" alt="user"></div>
+										<div class="u-text">
+											<h4>{{ staff.Present_Designation }}</h4>
+										</div>
+									</li>
+									<div class="dropdown-divider"></div>
+									<a class="dropdown-item" data-toggle="modal" data-target="#myModal1">Change Password</a>
+									<div class="dropdown-divider"></div>
+									<a class="dropdown-item" href="/log-out"><i class="fa fa-power-off"></i> Logout</a>
+								</ul>
+								<!-- /.dropdown-user -->
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+			<div class="sidebar">
+				<div class="scrollbar-inner sidebar-wrapper">
+					<div class="user">
+						<div class="photo">
+							<img src="{% static 'adminassets/img/working.png'%}">
+						</div>
+						<div class="info">
+							<a class="" data-toggle="collapse" href="#collapseExample" aria-expanded="true">
+								<span>
+									<span class="user-level">{{ staff.Name }}</span>
+									<span class="caret"></span>
+								</span>
+							</a>
+							<div class="clearfix"></div>
+
+						</div>
+					</div>
+					<ul class="nav">
+						{% comment %} <li class="nav-item">
+							<a href="/principal">
+								<i class="la la-dashboard"></i>
+								<p>Dashboard</p>
+							</a>
+						</li> {% endcomment %}
+						<li class="nav-item">
+							<a href="/faculty_list_P">
+								<i class="la la-table"></i>
+								<p>Faculty List</p>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="/grade_list_P">
+								<i class="la la-table"></i>
+								<p>Graded List</p>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="/grade_filter">
+								<i class="la la-table"></i>
+								<p>Graded List(Department)</p>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="/backup_filter">
+								<i class="la la-table"></i>
+								<p>Previous Year Scores</p>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+<div class="modal" id="myModal1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form action="/change_password_princi" method="POST">
+
+          {% csrf_token %}
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Change Password</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+
+          <!-- Modal body -->
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="pwd">New Password *</label>
+              <input type="password" class="form-control" placeholder="Enter password"
+                name="password" id="pwd" required />
+            </div>
+          </div>
+
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button id="submit_button" type="submit" class="btn btn-primary">Submit</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+			{% block content %}{% endblock content %}
+</body>
+<script src="{% static 'adminassets/js/core/jquery.3.2.1.min.js'%}"></script>
+<script src="{% static 'adminassets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js' %}"></script>
+<script src="{% static 'adminassets/js/core/popper.min.js'%}"></script>
+<script src="{% static 'adminassets/js/core/bootstrap.min.js'%}"></script>
+<script src="{% static 'adminassets/js/plugin/chartist/chartist.min.js'%}"></script>
+<script src="{% static 'adminassets/js/plugin/chartist/plugin/chartist-plugin-tooltip.min.js'%}"></script>
+<script src="{% static 'adminassets/js/plugin/bootstrap-toggle/bootstrap-toggle.min.js'%}"></script>
+<script src="{% static 'adminassets/js/plugin/jquery-mapael/jquery.mapael.min.js'%}"></script>
+<script src="{% static 'adminassets/js/plugin/jquery-mapael/maps/world_countries.min.js'%}"></script>
+<script src="{% static 'adminassets/js/plugin/chart-circle/circles.min.js'%}"></script>
+<script src="{% static 'adminassets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js'%}"></script>
+<script src="{% static 'adminassets/js/ready.min.js'%}"></script>
+<script src="{% static 'adminassets/js/demo.js'%}"></script>
+</html>

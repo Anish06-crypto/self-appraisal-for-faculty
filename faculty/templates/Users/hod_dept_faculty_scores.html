@@ -1,0 +1,77 @@
+{% extends 'base_hod.html' %}
+{% load static %}
+
+{% block title %}Department List{% endblock title %}
+
+{% block style %}
+
+  <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+  <style>
+            .card {
+                    margin: 0 auto; /* Added */
+                    float: none; /* Added */
+                    margin-bottom: 10px; /* Added */
+                }
+  </style>
+
+{% endblock style %}
+
+{% block content %}
+
+<div class="main-panel">
+  <div class="content">
+					<div class="container-fluid">
+						<h4 class="page-title">Department Faculty</h4>
+						<div class="row">
+							<div class="col-md-3">
+								<div class="card card-stats card-success">
+								</div>
+							</div>
+  <div class="card">
+	<div class="card-header ">
+			<h4 class="card-title">Updated Scores</h4>
+		</div>
+
+
+<div class="card-body">
+<div style="overflow-x:auto;">
+	<table class="table table-head-bg-primary table-striped table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Designation</th>
+      <th scope="col">Staff ID</th>
+      <th scope="col">Part 2(350)</th>
+      <th scope="col">Part 3(170)</th>
+      <th scope="col">Part 4(180)</th>
+      <th scope="col">Grand Score(100)</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for t in tle %}
+    {% if hod.Department == t.department %}
+      {% if t.whether_HOD == False %}
+        <tr>
+          <td>{{ t.name }}</td>
+          <td>{{ t.designation }}</td>
+          <td>{{ t.user }}</td>
+          <td>{{ t.Part1HODAPIscore }}</td>
+          <td>{{ t.part2HODAPIscore }}</td>
+          <td>{{ t.part3HODAPIscore }}</td>
+          <td>{{ t.GrandScoreHOD }}</td>
+        </tr>
+      {% endif %} 
+   {% endif %}
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+  </div>
+</div>
+    
+{% endblock content %}

@@ -1,0 +1,200 @@
+{% extends 'base_princi.html' %}
+{% load static %}
+
+{% block title %}Self-Appraisal Principal Verification{% endblock title %}
+
+{% block content %}
+
+<div class="main-panel">
+	<div class="card">
+		<div class="card-header "><br><br>
+			<h4 class="card-title"><h4><b>{{ form.user }}<b></h4></h4>
+			<p class="card-category">Self-Appraisal</p>
+		</div>
+
+<form method="POST" action="/AppraisalForm/appraisalform_principal/{{ form.user }}">
+    {% csrf_token %}
+
+<!-- tle form -->
+
+<div class="card-body">
+<div style="overflow-x:auto;">
+<table class="table table-head-bg-primary table-striped table-hover">
+  <thead>
+    <tr>
+     <th class="tbfirst" style="width: 5%"><h6>Qn</h6></th>
+        <th class="tblque" style="width: 71%"><h6>Questions</h6></th>
+         <th class="tblvalue" style="width: 8%"><h6>Faculty Score</h6></th>
+        <th class="tblvalue" style="width: 8%"><h6>Hod Score</h6></th>
+        <th class="tblvalue" style="width: 8%"><h6>My Score</h6></th>
+    </tr>
+  </thead>
+  <tbody>
+     
+        <tr>
+             <td><h6><strong>1.a(Qn)</strong></h6></td>
+          <td><h6>% of pass (/30)</h6></td>
+            <td>{{ form.a7_Sub_Code_of_theory_Subjects_taught_and_No_of_Students_score }}</td>
+            <td>{{ form.a7HOD_score }}</td>
+           <td><input type="number" class="form-control" name="a7P" value="{{ form.a7P_score }}" min="0" max="30"/></td>
+        </tr>
+        
+        <tr>
+           <td><h6><strong>1.b(Qn)</strong></h6></td>
+          <td><h6>% of Students scoring ≥60% (/40)</h6></td>
+             <td>{{ form.b7_Percentage_of_Students_scoring_gt_60_score }}</td>
+            <td>{{ form.b7HOD_score }}</td>
+           <td><input type="number" class="form-control" name="b7P" value="{{ form.b7P_score }}" min="0" max="40"/></td>
+        </tr>
+
+         <tr>
+           <td><h6><strong>1.c(Ql)</strong></h6></td>
+          <td><h6>Student feedback (/40)</h6></td>
+              <td>{{ form.c7_Student_Feedback }}</td>
+            <td>{{ form.c7HOD_Student_Feedback }}</td>
+           <td><input type="number" class="form-control" name="c7P" value="{{ form.c7P_Student_Feedback }}" min="0" max="40"/></td>
+        </tr>
+
+         <tr>
+           <td><h6><strong>2.a(Qn)</strong></h6></td>
+          <td><h6>No. of conferences/workshops/ Seminars/ training programs/etc., FDPs attended (API marks=45 if #≥3, 40 for 2, 35 for 1)</h6></td>
+           <td>{{ form.a9_No_of_conferences_or_workshops_or_Seminars_or_training_programs_or_etc_FDPs_attended_score }}</td>
+            <td>{{ form.a9HOD_score }}</td>
+           <td><input type="number" class="form-control"  name="a9P" value="{{ form.a9P_score }}" min="0" max="45"/></td>
+        </tr>
+
+        <tr>
+           <td><h6><strong>2.b(Qn)</strong></h6></td>
+          <td><h6>Use of ICT in TLP(/35)</h6></td>
+             <td>{{ form.b9_Use_of_ICT_in_TLP_score }}</td>
+            <td>{{ form.b9HOD_score }}</td>
+           <td><input type="number" class="form-control" name="b9P" value="{{ form.b9P_score }}" min="0" max="35"/></td>
+        </tr>
+
+         <tr>
+           <td><h6><strong>2.c(Qn)</strong></h6></td>
+          <td><h6>No. of conferences/workshops/ Seminars/ training programs/etc., FDPs conducted / coordinated (API marks =30 if #≥2, 25 for #<2, 0 for <1)</h6></td>
+            <td>{{ form.c9_No_of_conferences_or_workshops_or_Seminars_or_training_or_programs_or_etc_or_FDPs_conducted_or_coordinated_score }}</td>
+            <td>{{ form.c9HOD_score }}</td>
+             <td><input type="number" class="form-control" name="c9P" value="{{ form.c9P_score }}" min="0" max="30"/></td>
+        </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+
+{% if form.department == "Basic Science and Humanities" %}
+
+<div class="card">
+<div class="card-body">
+<div style="overflow-x:auto;">
+<table class="table table-head-bg-primary table-striped table-hover">
+    <thead>
+        <tr>
+        <th class="tbfirst" style="width: 5%"><h6>qn</h6></th>
+        <th class="tblque" style="width: 71%"><h6>Questions</h6></th>
+             <th class="tblvalue" style="width: 8%"><h6>Faculty Score</h6></th>
+        <th class="tblvalue" style="width: 8%"><h6>Hod Score</h6></th>
+        <th class="tblvalue" style="width: 8%"><h6>My Score</h6></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+                 <td><h6><strong>3.a(Qn)</strong></h6></td>
+            <td><h6>No. of Topper in 1st year of study under your mentorship (API Marks= 30 if branch topper, 25 marks if 2nd  branch topper, 20 if 3rd branch topper, 15 if 4th branch topper, 10 if 5th branch topper)</h6> </td>
+             <td>{{ form.a8B_No_of_Topper_in_1st_year_of_study_under_your_mentorship_score }}</td>
+            <td>{{ form.a8BHOD_score }}</td>
+            <td><input type="number" class="form-control" name="a8bP" value="{{ form.a8BP_score }}" min="0" max="30"/></td>
+            </tr>
+
+            <tr>
+                 <td><h6><strong>3.b(Qn)</strong></h6></td>
+            <td><h6>No. of students achieved vertical progression to 2nd Year under your mentorship (API marks = 40 marks, if % graduated is 91-100%, 35 if 81-90%, 30 if 75-80%, 25 if 61-70%, 20 if 51-60%, 15 if 41-50%, 10 if 1-40%, 0 marks if 0%)</h6> </td>
+              <td>{{ form.b8B_No_of_students_achieved_vertical_progression_to_2nd_Year_under_your_mentorship_score }}</td>
+            <td>{{ form.b8BHOD_score }}</td>
+                <td><input type="number" class="form-control" name="b8bP" value="{{ form.b8BP_score }}" min="0" max="40"/></td>
+            </tr>
+            
+            <tr>
+                  <td><h6><strong>3.c(Qn)</strong></h6></td>
+            <td><h6>No. of FCD in 1st year of study under your mentorship (API Marks= 50 marks if 96-100% of the total No. of mentees allotted, 48 if 91-95%, 46 if 86-90%, 44 if 81-85%, 42 if 76-80%, 40 if 71-75%, 38 if 66-70%, 36 if 61-70%, 34 if 56-60%, 32 if 51-55%, 30 if 36-40%, 25 if 1-35%, 0 marks if 0% of your mentees secured FCD )</h6></td>
+              <td>{{ form.c8B_No_of_FCD_in_1st_year_of_study_under_your_mentorship_score }}</td>
+            <td>{{ form.c8BHOD_score }}</td>
+                <td><input type="number" class="form-control" name="c8bP" value="{{ form.c8BP_score }}" min="0" max="50"/></td>
+            </tr>
+            <tr>
+                <td><h6><strong>3.d(Qn)</strong></h6></td>
+            <td><h6>No. of UG/PG projects Co-guided (API= 10 marks if project is completed.)</h6></td>
+             <td>{{ form.d8B_No_of_UG_or_PG_projects_Co_guided_score }}</td>
+            <td>{{ form.d8BHOD_score }}</td>
+            <td><input type="number" class="form-control" name="d8bP" value="{{ form.d8BP_score }}" min="0" max="10"/></td>
+            </tr>
+    </tbody>
+</table>
+
+</div>
+</div>
+</div>
+
+{% else %}
+
+<div class="card">
+<div class="card-body">
+<div style="overflow-x:auto;">
+<table class="table table-head-bg-primary table-striped table-hover">
+    <thead>
+        <tr>
+        <th class="tbfirst" style="width: 5%"><h6>Slno</h6></th>
+        <th class="tblque" style="width: 71%"><h6>Questions</h6></th>
+           <th class="tblvalue" style="width: 8%"><h6>Faculty Score</h6></th>
+        <th class="tblvalue" style="width: 8%"><h6>Hod Score</h6></th>
+        <th class="tblvalue" style="width: 8%"><h6>My Score</h6></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+                <td><h6><strong>3.a(Qn)</strong></h6></td>
+            <td><h6>No. of projects guided (40 API marks if No is ≥1)</h6> </td>
+              <td>{{ form.a8_No_of_projects_guided_score }}</td>
+            <td>{{ form.a8HOD_score }}</td>
+            <td><input type="number" class="form-control" name="a8P" value="{{ form.a8P_score }}" min="0" max="40"/></td>
+            </tr>
+            <br><br>
+            <tr>
+                <td><h6><strong>3.b(Qn)</strong></h6></td>
+            <td><h6>No. of Best Projects Awarded (API Marks=60 for 1st place, 55 for 2nd place, 50 for 3rd place) <b>(OR)</b><br><br>
+                    Student Project Exhibited in competitions/Symposiums. (API Marks=60 if won in competitions/symposium, 40 if only exhibited) <b>(OR)</b>
+                    Funded by external agency. (API marks= 60 if funds≥5000; 50 API marks if funds<5000)<b>(OR)</b><br><br>
+                    Student Project Paper Publication(s) (60 API marks if No. of Pub.≥1)<br>
+                    </h6> </td>
+                 <td>{{ form.b8_No_of_Best_Projects_Awarded_OR_Student_Project_Exhibited_in_competitions_or_Symposiums_OR_Funded_by_external_agency_OR_Student_Project_Paper_Publication_s_score }}</td>
+            <td>{{ form.b8HOD_score }}</td>
+            <td><input type="number" class="form-control" name="b8P" value="{{ form.b8P_score }}" min="0" max="60"/></td>
+            </tr>
+            
+            <tr>
+                  <td><h6><strong>3.c(Qn)</strong></h6></td>
+            <td><h6>No. of students achieved vertical progression under your mentorship (API marks = 30 marks, if % of graduated is ≥90%, 25 for 81-89%, 20 for 71-79, 15 for 61-69.</h6></td>
+              <td>{{ form.c8_No_of_students_achieved_vertical_progression_under_your_mentorship }}</td>
+            <td>{{ form.c8HOD_No_of_students_achieved_vertical_progression_under_your_mentorship }}</td>
+                <td><input type="number" class="form-control" name="c8P" value="{{ form.c8P_No_of_students_achieved_vertical_progression_under_your_mentorship }}" min="0" max="30"/></td>
+            </tr>
+    </tbody>
+</table>
+
+</div>
+</div>
+</div>
+
+{% endif %}
+
+<button type="submit" class="btn btn-dark" style="float:right" >Submit</button>
+</form>
+<a href="{% url 'staff_edit_P2' form.user %}" class="btn btn-info">Next</a>
+</div>
+</div>
+</div>
+</div>
+
+{% endblock content %}

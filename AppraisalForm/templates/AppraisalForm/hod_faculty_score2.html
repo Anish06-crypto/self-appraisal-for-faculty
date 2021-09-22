@@ -1,0 +1,105 @@
+{% extends 'base_hod.html' %}
+{% load static %}
+
+{% block title %}Self-Appraisal HOD Verification{% endblock title %}
+
+{% block content %}
+
+<div class="main-panel">
+	<div class="card">
+		<div class="card-header "><br><br>
+			<h4 class="card-title"><h4><b>{{ form.user }}<b></h4></h4>
+			<p class="card-category">Self-Appraisal</p>
+		</div>
+
+<form method="POST" action="/AppraisalForm/appraisalform_hodscore2/{{ form.user }}">
+    {% csrf_token %}
+
+<!-- rdc form -->
+
+<div id="rdc" >
+ <div class="card-body">
+ <div style="overflow-x:auto;">
+<table class="table table-head-bg-primary table-striped table-hover">
+   <thead>
+    <tr>
+     <th class="tbfirst" style="width: 5%"><h6>Slno</h6></th>
+        <th class="tblque" style="width: 79%"><h6>Questions</h6></th>
+         <th class="tblvalue" style="width: 8%"><h6>Faculty Score</h6></th>
+        <th class="tblvalue" style="width: 8%"><h6>Score</h6></th>
+        <th class="tblvalue" style="width: 8%"><h6>Files Uploaded</h6></th>
+    </tr>
+  </thead>
+  <tbody>
+       
+        <tr>
+             <td ><h6><strong>4.a(Qn)</strong></h6></td>
+          <td><h6>No. of papers published in journals (API marks = 20 API marks if No.≥2, 15 marks if No. <2, 0 marks if No. = 0)</h6> </td>
+           <td>{{ form.a10_No_of_papers_published_in_journals_score }}</td>
+           <td><input type="number" class="form-control" name="a10HOD" value={{ form.a10HOD_score }} min="0" max="20"/></td>
+           <td><a class="btn btn-info" href="{{ form.a10file.url }}">View Document</td>
+        </tr>
+
+         <tr>
+           <td ><h6><strong>4.b(Qn)</strong></h6></td>
+          <td><h6>No. of papers presented in conferences (API marks =20 if No.≥3, 15 if No.=2, 10 if No.=1)</h6> </td>
+           <td>{{ form.b10_No_of_papers_presented_in_conferences_score }}</td>
+           <td><input type="number" class="form-control" name="b10HOD" value={{ form.b10HOD_score }}  min="0" max="20"/></td>
+           <td><a class="btn btn-info" href="{{ form.b10file.url }}">View Document</td>
+        </tr>
+        
+        <tr>
+            <td ><h6><strong>4.c(Qn)</strong></h6></td>
+          <td><h6>No. of papers indexed in In Scopus/Web of Science/ UGC care list. (API marks = (No. of papers indexed in Scopus/Web of Science/ UGC care list /No. of papers Published (as per 10.a.))*40) <b>(OR)</b><br><br>
+          No. of book chapters authored (API marks =40 if #≥5, 35 if #=4, 30 if #=3, 25 if #=2, 20 if #=1) <b>(OR)</b><br><br>
+          No. of Books Authored (API marks = 40 if prescribed by any 2 universities, 35 if prescribed by 1 university, 30 if authored)</h6></td>
+           <td>{{ form.c10_No_of_papers_indexed_in_In_Scopus_or_Web_of_Science_or_UGC_care_list_OR_No_of_book_chapters_authored_OR_No_of_Books_Authored_score }}</td>
+           <td><input type="number" class="form-control" name="c10HOD" value={{ form.c10HOD_score }} min="0" max="40"/></td>
+           <td><a class="btn btn-info" href="{{ form.c10file.url }}">View Document</td>
+        </tr>
+
+        <tr>
+             <td ><h6><strong>5.a(Qn)</strong></h6></td>
+          <td><h6>No. of Research Project proposals submitted (API marks = 20 if submitted</h6></td>
+           <td>{{ form.a11_No_of_Research_Project_proposals_submitted_score }}</td>
+           <td><input type="number" class="form-control" name="a11HOD" value={{ form.a11HOD_score }} min="0" max="20"/></td>
+           <td><a class="btn btn-info" href="{{ form.a11file.url }}">View Document</td>
+        </tr>
+
+         <tr>
+            <td ><h6><strong>5.b(Qn)</strong></h6></td>
+          <td><h6>No. of Research projects Received and Amount (API marks =30 if Amount ≥4 lacs, 25 if Amount ≥ 1 and < 4lacs, 20 if Amount <1 lacs)</h6></td>
+           <td>{{ form.b11_No_of_Research_projects_Received_and_Amount_score }}</td>
+           <td><input type="number" class="form-control" name="b11HOD" value={{ form.b11HOD_score }}  min="0" max="30"/></td>
+           <td><a class="btn btn-info" href="{{ form.b11file.url }}">View Document</td>
+        </tr>
+
+        <tr>
+           <td ><h6><strong>6.a(Qn)</strong></h6></td>
+          <td><h6>No. of Consultancy projects received/ongoing (≤1 lacs, 15 API marks,  >1 lacs, 20 API marks</h6></td>
+           <td>{{ form.a12_No_of_Consultancy_projects_received_OR_ongoing_score }}</td>
+           <td><input type="number" class="form-control" name="a12HOD" value={{ form.a12HOD_score }} min="0" max="20"/></td>
+           <td><a class="btn btn-info" href="{{ form.a12file.url }}">View Document</td>
+        </tr>
+
+        <tr>
+            <td ><h6><strong>6.b(Qn)</strong></h6></td>
+          <td><h6>No. of patents applied/ awarded (20 API marks if any No. of awarded, 15API marks if any No. applied)</h6></td>
+           <td>{{ form.b12_No_of_patents_applied_awarded_score }}</td>
+           <td><input type="number" class="form-control" name="b12HOD" value={{ form.b12HOD_score }} min="0" max="20"/></td>
+           <td><a class="btn btn-info" href="{{ form.b12file.url }}">View Document</td>
+        </tr>
+  </tbody>
+</table>
+
+<button type="submit" class="btn btn-dark" style="float:right;" >Submit</button>
+</form>
+<a href="{% url 'staff_edit' form.user %}" class="btn btn-info" >Prev</a>
+<a href="{% url 'staff_edit3' form.user %}" class="btn btn-info" >Next</a>
+</div>
+</div>
+</div>
+</div>
+
+
+{% endblock content %}

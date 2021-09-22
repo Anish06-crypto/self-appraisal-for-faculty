@@ -1,0 +1,189 @@
+{% extends 'base_hod.html' %}
+{% load static %}
+
+{% block title %}Self-Appraisal Form{% endblock title %}
+
+{% block content %}
+
+
+<div class="main-panel">
+	<div class="card">
+		<div class="card-header "><br><br>
+			<h4 class="card-title"><h4><b>{{ staff_id }}<b></h4></h4>
+			<p class="card-category">Self-Appraisal</p>
+		</div>
+        <ul class="messages">
+            {% for message in messages %}
+                <h4>{{ message }}</h4>
+            {% endfor %}
+        </ul>
+ 
+<form method="POST" action="/AppraisalForm/appraisalform2_hodcreate/" enctype="multipart/form-data" >
+{% csrf_token %}
+
+<!-- rdc form -->
+
+<div id="rdc">
+ <div class="card-body">
+ <div style="overflow-x:auto;">
+<table class="table table-head-bg-primary table-striped table-hover">
+  <thead>
+    <tr>
+     <th class="tbfirst" style="width: 5%"><h6>Slno</h6></th>
+        <th class="tblque" style="width: 79%"><h6>Name</h6></th>
+        <th class="tblvalue" style="width: 8%"><h6>Score</h6></th>
+        <th class="tblvalue" style="width: 8%"><h6>File Upload</h6></th>
+    </tr>
+  </thead>
+  <tbody>
+
+        <tr>
+            <td><h6><strong>Year</strong></h6></td>
+          <td><h6>Enter Current Academic Year (YYYY-format) (Example - 2021)</h6> </td>
+           <td><input type="number" class="form-control" class="form-control" name="a_year"/></td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td ><h6><strong>4.a(Qn)</strong></h6></td>
+          <td><h6>No. of papers published in journals (API marks = 20 API marks if No.≥2, 15 marks if No. <2, 0 marks if No. =0)</h6> </td>
+           <td><input type="number" class="form-control" name="a10" placeholder="/20" min="0" max="20"/></td>
+           <td><label for="file-upload11" class="custom-file-upload">
+                  <i class="fa fa-cloud-upload"></i> Upload File
+              </label>
+           <input id="file-upload11" type="file" name="a10file" style="display:none;" ></td>
+        </tr>
+
+         <tr>
+            <td ><h6><strong>4.b(Qn)</strong></h6></td>
+          <td><h6>No. of papers presented in conferences (API marks =20 if No.≥3, 15 if No.=2, 10 if No.=1)</h6> </td>
+           <td><input type="number" class="form-control" name="b10"  placeholder="/20" min="0" max="20"/></td>
+           <td><label for="file-upload12" class="custom-file-upload">
+                  <i class="fa fa-cloud-upload"></i> Upload File
+              </label>
+           <input id="file-upload12" type="file" name="b10file" style="display:none;" ></td>
+        </tr>
+
+        <tr>
+            <td ><h6><strong>4.c(Qn)</strong></h6></td>
+          <td><h6>No. of papers indexed in In Scopus/Web of Science/ UGC care list. (API marks = (No. of papers indexed in Scopus/Web of Science/ UGC care list /No. of papers Published (as per 10.a.))*40) <b>(OR)</b><br><br>
+          No. of book chapters authored (API marks =40 if #≥5, 35 if #=4, 30 if #=3, 25 if #=2, 20 if #=1) <b>(OR)</b><br><br>
+          No. of Books Authored (API marks = 40 if prescribed by any 2 universities, 35 if prescribed by 1 university, 30 if authored)</h6></td>
+           <td><input type="number" class="form-control" name="c10" placeholder="/40" min="0" max="40"/></td>
+           <td><label for="file-upload13" class="custom-file-upload">
+                  <i class="fa fa-cloud-upload"></i> Upload File
+              </label>
+           <input id="file-upload13" type="file" name="c10file" style="display:none;" ></td>
+        </tr>
+
+        <tr>
+            <td ><h6><strong>5.a(Qn)</strong></h6></td>
+          <td><h6>No. of Research Project proposals submitted (API marks = 20 if submitted</h6></td>
+           <td><input type="number" class="form-control" name="a11"  placeholder="/20" min="0" max="20"/></td>
+           <td><label for="file-upload14" class="custom-file-upload">
+                  <i class="fa fa-cloud-upload"></i> Upload File
+              </label>
+           <input id="file-upload14" type="file" name="a11file" style="display:none;" ></td>
+        </tr>
+
+         <tr>
+            <td ><h6><strong>5.b(Qn)</strong></h6></td>
+          <td><h6>No. of Research projects Received and Amount (API marks =30 if Amount ≥4 lacs, 25 if Amount ≥ 1 and < 4lacs, 20 if Amount <1 lacs)</h6></td>
+           <td><input type="number" class="form-control" name="b11"  placeholder="/30" min="0" max="30"/></td>
+           <td><label for="file-upload15" class="custom-file-upload">
+                  <i class="fa fa-cloud-upload"></i> Upload File
+              </label>
+           <input id="file-upload15" type="file" name="b11file" style="display:none;" ></td>
+        </tr>
+
+        <tr>
+            <td ><h6><strong>6.a(Qn)</strong></h6></td>
+          <td><h6>No. of Consultancy projects received/ongoing (≤1 lacs, 15 API marks,  >1 lacs, 20 API marks</h6></td>
+           <td><input type="number" class="form-control" name="a12" placeholder="/20" min="0" max="20"/></td>
+           <td><label for="file-upload16" class="custom-file-upload">
+                  <i class="fa fa-cloud-upload"></i> Upload File
+              </label>
+           <input  id="file-upload16" type="file" name="a12file" style="display:none;" ></td>
+        </tr>
+
+        <tr>
+            <td ><h6><strong>6.b(Qn)</strong></h6></td>
+          <td><h6>No. of patents applied/ awarded (20 API marks if any No. of awarded, 15API marks if any No. applied)</h6></td>
+           <td><input type="number" class="form-control" name="b12" placeholder="/20" min="0" max="20"/></td>
+           <td><label for="file-upload17" class="custom-file-upload">
+                  <i class="fa fa-cloud-upload"></i> Upload File
+              </label>
+           <input id="file-upload17" type="file" name="b12file" style="display:none;" ></td>
+        </tr>
+  </tbody>
+</table>
+
+<button type="submit" class="btn btn-dark" style="float: right;" >Submit</button>
+</form>
+<a href="{% url 'create_formhod' %}" class="btn btn-info" >Prev<a/>
+</div>
+</div>
+</div>
+
+{% block style %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+      <script>
+
+            $('#file-upload11').change(function() {
+                var i = $(this).prev('label').clone();
+                var file = $('#file-upload11')[0].files[0].name;
+                $(this).prev('label').text(file);
+            });
+            $('#file-upload12').change(function() {
+                var i = $(this).prev('label').clone();
+                var file = $('#file-upload12')[0].files[0].name;
+                $(this).prev('label').text(file);
+            });
+            $('#file-upload13').change(function() {
+                var i = $(this).prev('label').clone();
+                var file = $('#file-upload13')[0].files[0].name;
+                $(this).prev('label').text(file);
+            });
+            $('#file-upload14').change(function() {
+                var i = $(this).prev('label').clone();
+                var file = $('#file-upload14')[0].files[0].name;
+                $(this).prev('label').text(file);
+            });
+            $('#file-upload15').change(function() {
+                var i = $(this).prev('label').clone();
+                var file = $('#file-upload15')[0].files[0].name;
+                $(this).prev('label').text(file);
+            });
+            $('#file-upload16').change(function() {
+                var i = $(this).prev('label').clone();
+                var file = $('#file-upload16')[0].files[0].name;
+                $(this).prev('label').text(file);
+            });
+            $('#file-upload17').change(function() {
+                var i = $(this).prev('label').clone();
+                var file = $('#file-upload17')[0].files[0].name;
+                $(this).prev('label').text(file);
+            });
+      </script>
+
+        <style>
+
+          .custom-file-upload {
+                  border: 1px solid #ccc;
+                  display: inline-block;
+                  padding: 6px 12px;
+                  cursor: pointer;
+                  background-color: #7FFFD4;
+              }
+          .messages {
+                  color: #9F6000;
+	                background-color: #FEEFB3;
+                  border: 1px solid #ccc;
+          }
+        </style>
+
+{% endblock style %}
+            
+
+{% endblock content %}

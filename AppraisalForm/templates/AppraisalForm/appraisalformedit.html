@@ -1,0 +1,331 @@
+{% extends 'base_faculty.html' %}
+{% load static %}
+
+{% block title %}Self-Appraisal Form{% endblock title %}
+
+{% block content %}
+
+
+<div class="main-panel">
+	<div class="card">
+		<div class="card-header "><br><br>
+			<h4 class="card-title"><h4><b>{{ staff_id }}<b></h4></h4>
+			<p class="card-category">Self-Appraisal</p>
+		</div>
+    <ul class="messages">
+            {% for message in messages %}
+                <h4>{{ message }}</h4>
+            {% endfor %}
+        </ul>
+ 
+<form method="POST" action="/AppraisalForm/appraisalform/" enctype="multipart/form-data" >
+{% csrf_token %}
+
+<!-- tle form -->
+
+ <div class="card-body">
+ <div style="overflow-x:auto;">
+<table class="table table-head-bg-primary table-striped table-hover">
+ <thead>
+    <tr>
+     <th class="tbfirst" style="width: 5%"><h6>Slno</h6></th>
+        <th class="tblque" style="width: 52%"><h6>Quetions</h6></th>
+        <th class="tblvalue" style="width: 10%"><h6>Subject Code/Name</h6></th>
+        <th class="tblvalue" style="width: 8%"><h6>No. of students</h6></th>
+        <th class="tblvalue" style="width: 8%"><h6>Pass %</h6></th>
+        <th class="tblvalue" style="width: 8%"><h6>Pass % >60</h6></th>
+        <th class="tblvalue" style="width: 9%"><h6>File Upload</h6></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td rowspan="4"><h6><strong>1.a(Qn)</strong></h6></td>
+      <td rowspan="4">
+        <h6>Sub Code of theory Subjects taught & No of Students.<br>
+        % of pass<br>% of Students scoring ≥60%</h6></td>
+      <td><input type="text" class="form-control" name="sub1" value="{{ staffedit.Sub_code1 }}" /></td>
+      <td><input type="number" class="form-control" name="s1" value="{{ staffedit.No_of_students1 }}" /></td>
+       <td><input type="number" class="form-control" placeholder="pass %" name="pass1" value="{{ staffedit.Percentage_of_pass1 }}" /></td>
+       <td><input type="number" class="form-control" placeholder=">=60" name="pass61" value="{{ staffedit.Percent_over_601 }}" /></td >    
+      <td><a href="{{ staffedit.percent.url }}" class="btn btn-sm btn-info">Current File</a>
+      <label for="file-upload1" class="custom-file-upload">
+                  <i class="fa fa-cloud-upload"></i> Upload File
+              </label>  
+      <input id="file-upload1" type="file" name="pfile" style="display:none"></td>
+    </tr>
+
+    <tr>
+         <td><input type="text" class="form-control" class="form-control" name="sub2" value="{{ staffedit.Sub_code2 }}"/></td>
+            <td><input type="number" class="form-control"  name="s2" value="{{ staffedit.No_of_students2 }}" /></td>
+             <td><input type="number" class="form-control" placeholder="pass %" name="pass2" value="{{ staffedit.Percentage_of_pass2 }}" /></td>
+             <td><input type="number" class="form-control" placeholder=">=60" name="pass62" value="{{ staffedit.Percent_over_602 }}" /></td> 
+    </tr>
+
+     <tr>
+           <td><input type="text" class="form-control" class="form-control" name="sub3" value="{{ staffedit.Sub_code3 }}" /></td>
+            <td><input type="number" class="form-control" name="s3" value="{{ staffedit.No_of_students3 }}" /></td>
+             <td><input type="number" class="form-control" placeholder="pass %" name="pass3" value="{{ staffedit.Percentage_of_pass3 }}" /></td>
+             <td><input type="number" class="form-control" placeholder=">=60" name="pass63" value="{{ staffedit.Percent_over_603 }}" /></td>
+    </tr>
+
+     <tr>
+           <td><input type="text" class="form-control" class="form-control" name="sub4" value="{{ staffedit.Sub_code4 }}" /></td>
+            <td><input type="number" class="form-control" name="s4" value="{{ staffedit.No_of_students4 }}" /></td>
+             <td><input type="number" class="form-control" placeholder="pass %" name="pass4" value="{{ staffedit.Percentage_of_pass4 }}" /></td>
+             <td><input type="number" class="form-control" placeholder=">=60" name="pass64" value="{{ staffedit.Percent_over_604 }}" /></td>
+    </tr>
+
+         <tr>
+              <td><h6><strong>1.b(Ql)</strong></h6></td>
+          <td><h6>Students Feedback (/40)</h6> </td>
+           <td><input type="number" class="form-control" name="student_feedback" value="{{ staffedit.c7_Student_Feedback }}" min="0" max="40"/></td>
+            <td></td>
+             <td></td>
+             <td></td>
+            <td></td>
+        </tr>
+ 
+        <tr>
+           <td ><h6><strong>2.a(Qn)</strong></h6></td>
+          <td><h6>No. of conferences/workshops/ Seminars/ training programs/etc., FDPs attended (API marks=45 if #≥3, 40 for 2, 35 for 1)</h6></td>
+           <td><input type="number" class="form-control" name="a9" value="{{ staffedit.a9_No_of_conferences_or_workshops_or_Seminars_or_training_programs_or_etc_FDPs_attended_score }}" min="0" max="45"/></td>
+             <td></td>
+            <td></td>
+            <td></td>
+            <td><a href="{{ staffedit.a9file.url }}" class="btn btn-sm btn-info">Current File</a>
+            <label for="file-upload2" class="custom-file-upload">
+                  <i class="fa fa-cloud-upload"></i> Upload File
+              </label>  
+            <input id="file-upload2" type="file" name="a9file" style="display:none;" ></td>
+        </tr>
+
+        <tr>
+             <td ><h6><strong>2.b(Qn)</strong></h6></td>
+          <td><h6>Use of ICT in TLP (/35)</h6></td>
+           <td><input type="number" class="form-control" name="b9" value="{{ staffedit.b9_Use_of_ICT_in_TLP_score }}" min="0" max="35"/></td>
+           <td></td>
+           <td></td>
+           <td></td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td ><h6><strong>2.c(Qn)</strong></h6></td>
+          <td><h6>No. of conferences/workshops/ Seminars/ training programs/etc., FDPs conducted / coordinated (API marks =30 if #≥2, 25 for #<2, 0 for <1)</h6></td>
+           <td><input type="number" class="form-control" name="c9" value="{{ staffedit.c9_No_of_conferences_or_workshops_or_Seminars_or_training_or_programs_or_etc_or_FDPs_conducted_or_coordinated_score }}" min="0" max="30"/></td>
+           <td></td>
+            <td></td>
+            <td></td>
+            <td><a href="{{ staffedit.c9file.url }}" class="btn btn-sm btn-info">Current File</a>
+            <label for="file-upload3" class="custom-file-upload">
+                  <i class="fa fa-cloud-upload"></i> Upload File
+              </label>
+            <input id="file-upload3" type="file" name="c9file" style="display:none;"></td>
+        </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+<!-- bsh check condition -->
+
+{% if staffedit.department == "Basic Science and Humanities" %}
+
+	<div class="card">
+ <div class="card-body">
+ <div style="overflow-x:auto;">
+<table class="table table-head-bg-primary table-striped table-hover">
+  <thead>
+    <tr>
+     <th class="tbfirst" style="width: 5%"><h6>Slno</h6></th>
+        <th class="tblque" style="width: 79%"><h6>Name</h6></th>
+        <th class="tblvalue" style="width: 8%"><h6>Score</h6></th>
+        <th class="tblvalue" style="width: 8%"><h6>File Upload</h6></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+            <td ><h6><strong>3.a(Qn)</strong></h6></td>
+          <td><h6>No. of Topper in 1st year of study under your mentorship (API Marks= 30 if branch topper, 25 marks if 2nd  branch topper, 20 if 3rd branch topper, 15 if 4th branch topper, 10 if 5th branch topper)</h6> </td>
+           <td><input type="number" class="form-control" name="a8b" value="{{ staffedit.a8B_No_of_Topper_in_1st_year_of_study_under_your_mentorship_score }}" min="0" max="30"/></td>
+           <td><a href="{{ staffedit.a8bfile.url }}" class="btn btn-sm btn-info">Current File</a>
+           <label for="file-upload4" class="custom-file-upload">
+                  <i class="fa fa-cloud-upload"></i> Upload File
+              </label>
+           <input id="file-upload4" type="file" name="a8bfile" style="display:none;" ></td>
+        </tr>
+
+         <tr>
+            <td ><h6><strong>3.b(Qn)</strong></h6></td>
+          <td><h6>No. of students achieved vertical progression to 2nd Year under your mentorship (API marks = 40 marks, if % graduated is 91-100%, 35 if 81-90%, 30 if 75-80%, 25 if 61-70%, 20 if 51-60%, 15 if 41-50%, 10 if 1-40%, 0 marks if 0%)</h6> </td>
+           <td><input type="number" class="form-control" name="b8b" value="{{ staffedit.b8B_No_of_students_achieved_vertical_progression_to_2nd_Year_under_your_mentorship_score }}" min="0" max="40"/></td>
+           <td><a href="{{ staffedit.b8bfile.url }}" class="btn btn-sm btn-info">Current File</a>
+           <label for="file-upload5" class="custom-file-upload">
+                  <i class="fa fa-cloud-upload"></i> Upload File
+              </label>
+           <input id="file-upload5" type="file" name="b8bfile" style="display:none;" ></td>
+        </tr>
+        
+        <tr>
+            <td ><h6><strong>3.c(Qn)</strong></h6></td>
+          <td><h6>No. of FCD in 1st year of study under your mentorship (API Marks= 50 marks if 96-100% of the total No. of mentees allotted, 48 if 91-95%, 46 if 86-90%, 44 if 81-85%, 42 if 76-80%, 40 if 71-75%, 38 if 66-70%, 36 if 61-70%, 34 if 56-60%, 32 if 51-55%, 30 if 36-40%, 25 if 1-35%, 0 marks if 0% of your mentees secured FCD )</h6></td>
+           <td><input type="number" class="form-control" name="c8b" value="{{ staffedit.c8B_No_of_FCD_in_1st_year_of_study_under_your_mentorship_score }}" min="0" max="50"/></td>
+           <td><a href="{{ staffedit.c8bfile.url }}" class="btn btn-sm btn-info">Current File</a>
+           <label for="file-upload6" class="custom-file-upload">
+                  <i class="fa fa-cloud-upload"></i> Upload File
+              </label>
+           <input id="file-upload6" type="file" name="c8bfile" style="display:none;" ></td>
+        </tr>
+        <tr>
+             <td ><h6><strong>3.d(Qn)</strong></h6></td>
+          <td><h6>No. of UG/PG projects Co-guided (API= 10 marks if project is completed.)</h6></td>
+           <td><input type="number" class="form-control" name="d8b" value="{{ staffedit.d8B_No_of_UG_or_PG_projects_Co_guided_score }}" min="0" max="10"/></td>
+           <td><a href="{{ staffedit.d8bfile.url }}" class="btn btn-sm btn-info">Current File</a>
+           <label for="file-upload7" class="custom-file-upload">
+                  <i class="fa fa-cloud-upload"></i> Upload File
+              </label>
+           <input id="file-upload7" type="file" name="d8bfile" style="display:none;" ></td>
+        </tr>
+  </tbody>
+</table>
+
+</div>
+</div>
+</div>
+
+{% else %}
+
+	<div class="card">
+ <div class="card-body">
+ <div style="overflow-x:auto;">
+<table class="table table-head-bg-primary table-striped table-hover">
+ <thead>
+    <tr>
+     <th class="tbfirst" style="width: 5%"><h6>Slno</h6></th>
+        <th class="tblque" style="width: 79%"><h6>Name</h6></th>
+        <th class="tblvalue" style="width: 8%"><h6>Score</h6></th>
+        <th class="tblvalue" style="width: 8%"><h6>File Upload</h6></th>
+    </tr>
+  </thead>
+  <tbody>
+     <tr>
+             <td ><h6><strong>3.a(Qn)</strong></h6></td>
+          <td><h6>No. of projects guided (40 API marks if No is ≥1)</h6> </td>
+           <td><input type="number" class="form-control" name="a8" value="{{ staffedit.a8_No_of_projects_guided_score }}" min="0" max="40"/></td>
+           <td></td>
+        </tr>
+        <br><br>
+        <tr>
+            <td ><h6><strong>3.b(Qn)</strong></h6></td>
+          <td><h6>No. of Best Projects Awarded (API Marks=60 for 1st place, 55 for 2nd place, 50 for 3rd place) <b>(OR)</b><br><br>
+                Student Project Exhibited in competitions/Symposiums. (API Marks=60 if won in competitions/symposium, 40 if only exhibited)    <b>(OR)</b><br><br>
+                Funded by external agency. (API marks= 60 if funds≥5000; 50 API marks if funds<5000)<b>(OR)</b><br><br>
+                Student Project Paper Publication(s) (60 API marks if No. of Pub.≥1)
+                </h6> </td>
+           <td><input type="number" class="form-control" name="b8" value="{{ staffedit.b8_No_of_Best_Projects_Awarded_OR_Student_Project_Exhibited_in_competitions_or_Symposiums_OR_Funded_by_external_agency_OR_Student_Project_Paper_Publication_s_score }}" min="0" max="60"/></td>
+           <td><a href="{{ staffedit.b8file.url }}" class="btn btn-sm btn-info">Current File</a>
+           <label for="file-upload9" class="custom-file-upload">
+                  <i class="fa fa-cloud-upload"></i> Upload File
+              </label>
+           <input id="file-upload9" type="file" name="b8file" style="display:none;" ></td>
+        </tr>
+        
+        <tr>
+            <td ><h6><strong>3.c(Qn)</strong></h6></td>
+          <td><h6>No. of students achieved vertical progression under your mentorship (API marks = 30 marks, if % of graduated is ≥90%, 25 for 81-89%, 20 for 71-79, 15 for 61-69.</h6></td>
+           <td><input type="number" class="form-control" name="c8" value="{{ staffedit.c8_No_of_students_achieved_vertical_progression_under_your_mentorship }}" min="0" max="30"/></td>
+           <td><a href="{{ staffedit.c8file.url }}" class="btn btn-sm btn-info">Current File</a>
+           <label for="file-upload10" class="custom-file-upload">
+                  <i class="fa fa-cloud-upload"></i> Upload File
+              </label>
+           <input id="file-upload10" type="file" name="c8file" style="display:none;"></td>
+        </tr>
+  </tbody>
+</table>
+
+</div>
+</div>
+</div>
+
+{% endif %}
+
+<button type="submit" class="btn btn-dark" >Save</button>
+</form>
+<a href="{% url 'create_form2' %}" class="btn btn-info" style="float: right;">Next<a/>
+</div>
+
+{% block style %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+      <script>
+
+            $('#file-upload1').change(function() {
+                var i = $(this).prev('label').clone();
+                var file = $('#file-upload1')[0].files[0].name;
+                $(this).prev('label').text(file);
+            });
+            $('#file-upload2').change(function() {
+                var i = $(this).prev('label').clone();
+                var file = $('#file-upload2')[0].files[0].name;
+                $(this).prev('label').text(file);
+            });
+            $('#file-upload3').change(function() {
+                var i = $(this).prev('label').clone();
+                var file = $('#file-upload3')[0].files[0].name;
+                $(this).prev('label').text(file);
+            });
+            $('#file-upload4').change(function() {
+                var i = $(this).prev('label').clone();
+                var file = $('#file-upload4')[0].files[0].name;
+                $(this).prev('label').text(file);
+            });
+            $('#file-upload5').change(function() {
+                var i = $(this).prev('label').clone();
+                var file = $('#file-upload5')[0].files[0].name;
+                $(this).prev('label').text(file);
+            });
+            $('#file-upload6').change(function() {
+                var i = $(this).prev('label').clone();
+                var file = $('#file-upload6')[0].files[0].name;
+                $(this).prev('label').text(file);
+            });
+            $('#file-upload7').change(function() {
+                var i = $(this).prev('label').clone();
+                var file = $('#file-upload7')[0].files[0].name;
+                $(this).prev('label').text(file);
+            });
+            $('#file-upload9').change(function() {
+                var i = $(this).prev('label').clone();
+                var file = $('#file-upload9')[0].files[0].name;
+                $(this).prev('label').text(file);
+            });
+            $('#file-upload10').change(function() {
+                var i = $(this).prev('label').clone();
+                var file = $('#file-upload10')[0].files[0].name;
+                $(this).prev('label').text(file);
+            });
+  
+      </script>
+
+        <style>
+
+          .custom-file-upload {
+                  border: 1px solid #ccc;
+                  display: inline-block;
+                  padding: 6px 12px;
+                  cursor: pointer;
+                  background-color: #7FFFD4;
+              }
+          .messages {
+                  color: #9F6000;
+	                background-color: #FEEFB3;
+                  border: 1px solid #ccc;
+          }
+        </style>
+
+{% endblock style %}
+            
+
+{% endblock content %}

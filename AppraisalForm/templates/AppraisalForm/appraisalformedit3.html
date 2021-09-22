@@ -1,0 +1,153 @@
+{% extends 'base_faculty.html' %}
+{% load static %}
+
+{% block title %}Self-Appraisal Form{% endblock title %}
+
+{% block content %}
+
+
+<div class="main-panel">
+	<div class="card">
+		<div class="card-header "><br><br>
+			<h4 class="card-title"><h4><b>{{ staff_id }}<b></h4></h4>
+			<p class="card-category">Self-Appraisal</p>
+		</div>
+    <ul class="messages">
+            {% for message in messages %}
+                <h4>{{ message }}</h4>
+            {% endfor %}
+        </ul>
+ 
+<form method="POST" action="/AppraisalForm/appraisalform3/" enctype="multipart/form-data" onsubmit="return confirm('Do you really want to submit the form?');" >
+{% csrf_token %}
+
+<!-- aopc form -->
+
+<div id="aopc" >
+ <div class="card-body">
+ <div style="overflow-x:auto;">
+<table class="table table-head-bg-primary table-striped table-hover">
+  <thead>
+    <tr>
+      <th class="tbfirst" style="width: 5%"><h6>Slno</h6></th>
+        <th class="tblque" style="width: 79%"><h6>Name</h6></th>
+        <th class="tblvalue" style="width: 8%"><h6>Score</h6></th>
+        <th class="tblvalue" style="width: 8%"><h6>File Upload</h6></th>
+    </tr>
+  </thead>
+  <tbody>
+      
+        <tr>
+             <td ><h6><strong>7.a(Ql)</strong></h6></td>
+          <td><h6>Punctuality: Adherence to set schedules to reporting to duty, planning and executing set tasks, etc. (/10)</h6> </td>
+           <td><input type="number" class="form-control" name="a13" value="{{ staffedit.a13 }}" min="0" max="10"/></td>
+        </tr>
+
+         <tr>
+            <td ><h6><strong>7.b(Ql)</strong></h6></td>
+          <td><h6>Behavior and Conduct: Maintains decorum of standards in ones conduct, way of behaving, etc.; maintain impartial work decorum, abhors insensitivity on basis of class, caste, creed, religion, etc. (/15)</h6> </td>
+           <td><input type="number" class="form-control" name="b13" value="{{ staffedit.b13 }}" min="0" max="15"/></td>
+        </tr>
+        
+        <tr>
+             <td ><h6><strong>7.c(Ql)</strong></h6></td>
+          <td><h6>Performance on assigned jobs: Accurate, neat, attentive to detail, consistent, thorough, high standards, follows procedures.(/15)</h6></td>
+           <td><input type="number" class="form-control" name="c13" value="{{ staffedit.c13 }}" min="0" max="15"/></td>
+        </tr>
+
+        <tr>
+            <td ><h6><strong>7.d(Ql)</strong></h6></td>
+          <td><h6>Upholding and Contributing to the Institute’s Culture: Upholds Institutes’ beliefs and values, ethical standards, promote the institute in all spheres particularly in admission, etc. (/15)</h6></td>
+           <td><input type="number" class="form-control" name="d13" value="{{ staffedit.d13 }}" min="0" max="15"/></td>
+        </tr>
+
+         <tr>
+           <td ><h6><strong>7.e(Ql)</strong></h6></td>
+          <td><h6>Mentoring Efficacy: Ability and willingness to communicate, Preparedness, Approachability, availability, and the ability to listen, Honesty with diplomacy, Inquisitiveness, Objectivity and fairness, Compassion and genuineness, efficacy of communication with parents and mentees and maintenance of log book. (/20)</h6></td>
+           <td><input type="number" class="form-control" name="e13" value="{{ staffedit.e13 }}" min="0" max="20"/></td>
+        </tr>
+
+        <tr>
+            <td ><h6><strong>7.f(Ql)</strong></h6></td>
+          <td><h6>Team-man-ship: Exhibits collaboration, cooperation, coordination; Exhibits positive attitude, willingness to adapt, embraces team-work, Complementary Abilities, Mutual Accountability, Enabling Structure, and Inspiring Leader. (/15)</h6></td>
+           <td><input type="number" class="form-control" name="f13" value="{{ staffedit.f13 }}" min="0" max="15"/></td>
+        </tr>
+
+        <tr>
+            <td ><h6><strong>8.a(Ql)</strong></h6></td>
+          <td><h6>Academic Preparedness: Course File. (/30)</h6></td>
+           <td><input type="number" class="form-control" name="a14" value="{{ staffedit.a14 }}" min="0" max="30"/></td>
+        </tr>
+
+        <tr>
+            <td ><h6><strong>8.b(Ql)</strong></h6></td>
+          <td><h6>Assessment Efficacy: Conducting IAs/ CIE and other Assessments systematically, evaluation of Answer scripts, assignments and Lab. Documents justifiably, etc. (/20)</h6></td>
+           <td><input type="number" class="form-control" name="b14" value="{{ staffedit.b14 }}" min="0" max="20"/></td>
+        </tr>
+
+         <tr>
+            <td ><h6><strong>8.c(Qn)</strong></h6></td>
+          <td><h6>No. of Student Activities organized for 1st year students or Higher Semester students (API marks = 20 marks if co-curricular and collaborative, 15 marks if co-curricular and individual, 10 marks if extra-curricular and collaborative)</h6></td>
+           <td><input type="number" class="form-control" name="c14" value="{{ staffedit.c14 }}" min="0" max="20"/></td>
+           <td><a href="{{ staffedit.c14file.url }}" class="btn btn-sm btn-info">Current File</a>
+           <label for="file-upload18" class="custom-file-upload">
+                  <i class="fa fa-cloud-upload"></i> Upload File
+              </label>
+           <input  id="file-upload18"type="file" name="c14file" style="display:none;" ></td>
+        </tr>
+
+        <tr>
+           <td ><h6><strong>9.a(Qn)</strong></h6></td>
+          <td><h6>No. of Add-on Responsibilities / Contributions-Internal (committee membership/ event coordinator/Lead-in roles#/ etc.) (# such as designated responsibilities like convener, Mahadasara, etc.) (20 API marks if any no.)</h6></td>
+           <td><input type="number" class="form-control" name="a15" value="{{ staffedit.a15 }}" min="0" max="20"/></td>
+           <td><a href="{{ staffedit.a15file.url }}" class="btn btn-sm btn-info">Current File</a>
+           <label for="file-upload19" class="custom-file-upload">
+                  <i class="fa fa-cloud-upload"></i> Upload File
+              </label>
+           <input id="file-upload19" type="file" name="a15file" style="display:none;" ></td>
+        </tr>
+  </tbody>
+</table>
+<button type="submit" class="btn btn-dark" name="submit" >Submit</button>
+</form>
+</div>
+</div>
+</div>
+
+{% block style %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+      <script>
+
+            $('#file-upload18').change(function() {
+                var i = $(this).prev('label').clone();
+                var file = $('#file-upload18')[0].files[0].name;
+                $(this).prev('label').text(file);
+            });
+            $('#file-upload19').change(function() {
+                var i = $(this).prev('label').clone();
+                var file = $('#file-upload19')[0].files[0].name;
+                $(this).prev('label').text(file);
+            });
+      </script>
+
+        <style>
+
+          .custom-file-upload {
+                  border: 1px solid #ccc;
+                  display: inline-block;
+                  padding: 6px 12px;
+                  cursor: pointer;
+                  background-color: #7FFFD4;
+              }
+          .messages {
+                  color: #9F6000;
+	                background-color: #FEEFB3;
+                  border: 1px solid #ccc;
+          }
+        </style>
+
+{% endblock style %}
+            
+
+{% endblock content %}

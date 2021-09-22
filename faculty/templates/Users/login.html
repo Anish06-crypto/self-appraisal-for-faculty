@@ -1,0 +1,38 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="{% static 'Users/style.css'%}">
+  <title>Login</title>
+</head>
+<body>
+  <div class="login-wrapper">
+    <form action="log-in" method="POST" class="form">
+    {% csrf_token %}
+      <img src="{% static 'Users/img/avatar.png' %}" alt="">
+      <h2>Login</h2>
+      <div class="input-group">
+        <input type="text" name="Staff_ID" id="loginUser" required>
+        <label for="loginUser">Staff ID *</label>
+      {% if isEmailInvalid %}
+            <div>
+              <small class="text-danger">Invalid Staff ID</small>
+            </div>
+      {% endif %}
+      </div>
+      <div class="input-group">
+        <input type="password" name="Password" id="loginPassword" required>
+        <label for="loginPassword">Password *</label>
+      </div>
+      {% if isPasswordInvalid %}
+            <div><small class="text-danger">Invalid Password, Contact Admin if forgotten.</small></div>
+      {% endif %}
+      <input type="submit" value="Login" class="submit-btn">
+  </div>
+</body>
+</html>
+

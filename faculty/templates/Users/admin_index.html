@@ -1,0 +1,78 @@
+{% extends 'base_admin.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="main-panel">
+				<div class="content">
+					<div class="container-fluid">
+						<h4 class="page-title">Dashboard</h4>
+						<div class="row">
+							<div class="col-md-3">
+								<div class="card card-stats card-primary">
+									<div class="card-body ">
+										<div class="row">
+											<div class="col-5">
+												<div class="icon-big text-center">
+													<i class="la la-user"></i>
+												</div>
+											</div>
+											<div class="col-7 d-flex align-items-center">
+												<div class="numbers">
+													<p class="card-category">Faculty</p>
+													<h4 class="card-title">{{ pd }}</h4>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="card card-stats card-danger">
+									<div class="card-body">
+										<div class="row">
+											<div class="col-5">
+												<div class="icon-big text-center">
+													<i class="la la-bar-chart"></i>
+												</div>
+											</div>
+											<div class="col-7 d-flex align-items-center">
+												<div class="numbers">
+													<p class="card-category">Department</p>
+													<h4 class="card-title">7</h4>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+								<div class="card">
+									<div class="card-header ">
+										<h4 class="card-title">Department</h4>
+										<p class="card-category">Department List</p>
+									</div>
+									<div class="card-body">
+										<table class="table table-head-bg-primary table-striped table-hover">
+											<thead>
+												<tr>
+													<th scope="col">Name</th>
+													<th scope="col">Hod</th>
+												</tr>
+											</thead>
+											<tbody>
+                                            {% for d in pdd %}
+                                                {% if d.Whether_HOD == True %}
+												<tr>
+													<td>{{ d.Department }}</td>
+													<td>{{ d.Name }}</td>
+												</tr>
+                                                {% endif %}
+                                            {% endfor %}
+											</tbody>
+										</table>
+									</div>
+								</div>
+
+{% endblock content %}
+
+

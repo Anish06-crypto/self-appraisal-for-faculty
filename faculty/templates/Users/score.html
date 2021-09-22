@@ -1,0 +1,373 @@
+{% extends 'base_display_f.html' %}
+{% load static %}
+
+{% block title %}Submitted Form Data{% endblock title %}
+
+{% block content %}
+<div class="main-panel">
+  <div class="content">
+					<div class="container-fluid">
+						<h4 class="page-title">Your submitted form details.</h4>
+						<div class="row">
+							<div class="col-md-3">
+								<div class="card card-stats card-success">
+								</div>
+							</div>
+  <div class="card">
+	<div class="card-header ">
+			<h4 class="card-title">{{ faculty.Name }}</h4>
+				<p class="card-category">{{ faculty.Staff_ID }}</p>
+		</div>
+<div style="overflow-x:auto;">
+<table class="table table-head-bg-primary table-striped table-hover">
+  <thead>
+    <tr>
+     <th class="tbfirst" style="width: 5%"><b>Qn</b></th>
+        <th class="tblque" style="width: 65%"><b>Quetions</b></th>
+        <th class="tblvalue" style="width: 9%"></th>
+        <th class="tblvalue" style="width: 7%"></th>
+        <th class="tblvalue" style="width: 7%"></th>
+        <th class="tblvalue" style="width: 7%"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="4"><h4><strong>1.a.</strong></h4></td>
+      <td rowspan="4">
+        <h6>Sub Code of theory Subjects taught & No of Students.<br>
+        % of pass<br>% of Students scoring ≥60%</h6></td>
+        <td>{{ apf.Sub_code1 }}</td>
+       <td>{{ apf.No_of_students1 }}</td>
+       <td>{{ apf.Percentage_of_pass1 }}</td>
+       <td>{{ apf.Percent_over_601 }}</td>    
+    </tr>
+
+    <tr>
+       <td>{{ apf.Sub_code2 }}</td>
+       <td>{{ apf.No_of_students2 }}</td>
+       <td>{{ apf.Percentage_of_pass2 }}</td>
+       <td>{{ apf.Percent_over_602 }}</td> 
+    </tr>
+
+     <tr>
+        <td>{{ apf.Sub_code3 }}</td>
+       <td>{{ apf.No_of_students3 }}</td>
+       <td>{{ apf.Percentage_of_pass3 }}</td>
+       <td>{{ apf.Percent_over_603 }}</td> 
+    </tr>
+
+     <tr>
+        <td>{{ apf.Sub_code4 }}</td>
+       <td>{{ apf.No_of_students4 }}</td>
+       <td>{{ apf.Percentage_of_pass4 }}</td>
+       <td>{{ apf.Percent_over_604 }}</td> 
+    </tr>
+
+         <tr>
+            <td><h4><strong>1.b.</strong></h4></td>
+          <td><h6>Students Feedback</h6> </td>
+            <td>{{ apf.c7_Student_Feedback }}</td>
+             <td></td>
+             <td></td>
+            <td></td>
+        </tr>
+ 
+        <tr>
+            <td ><h4><strong>2.a.</strong></h4></td>
+          <td><h6>No. of conferences/workshops/ Seminars/ training programs/etc., FDPs attended (API marks=45 if #≥3, 40 for 2, 35 for 1)</h6></td>
+           <td>{{ apf.a9_No_of_conferences_or_workshops_or_Seminars_or_training_programs_or_etc_FDPs_attended_score }}</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td ><h4><strong>2.b.</strong></h4></td>
+          <td><h6>Use of ICT in TLP</h6></td>
+           <td>{{ apf.b9_Use_of_ICT_in_TLP_score }}</td>
+           <td></td>
+           <td></td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td ><h4><strong>2.c.</strong></h4></td>
+          <td><h6>No. of conferences/workshops/ Seminars/ training programs/etc., FDPs conducted / coordinated (API marks =30 if #≥2, 25 for # less than 2, 0 for less than 1)</h6></td>
+           <td>{{ apf.c9_No_of_conferences_or_workshops_or_Seminars_or_training_or_programs_or_etc_or_FDPs_conducted_or_coordinated_score }}</td>
+           <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+  </tbody>
+</table>
+</div>
+
+
+{% if apf.department == "Basic Science and Humanities" %}
+
+<div>
+<div style="overflow-x:auto;">
+<table class="table table-head-bg-primary table-striped table-hover">
+  <thead>
+    <tr>
+     <th class="tbfirst" style="width: 5%"><b>qn</b></th>
+        <th class="tblque" style="width: 88%"><b>Name</b></th>
+        <th class="tblvalue" style="width: 7%"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+            <td ><h4><strong>3.a.</strong></h4></td>
+          <td><h6>No. of Topper in 1st year of study under your mentorship (API Marks= 30 if branch topper, 25 marks if 2nd  branch topper, 20 if 3rd branch topper, 15 if 4th branch topper, 10 if 5th branch topper)</h6> </td>
+           <td>{{ apf.a8B_No_of_Topper_in_1st_year_of_study_under_your_mentorship_score }}</td>
+        </tr>
+
+         <tr>
+            <td ><h4><strong>3.b.</strong></h4></td>
+          <td><h6>No. of students achieved vertical progression to 2nd Year under your mentorship (API marks = 40 marks, if % graduated is 91-100%, 35 if 81-90%, 30 if 75-80%, 25 if 61-70%, 20 if 51-60%, 15 if 41-50%, 10 if 1-40%, 0 marks if 0%)</h6> </td>
+           <td>{{ apf.b8B_No_of_students_achieved_vertical_progression_to_2nd_Year_under_your_mentorship_score }}</td>
+        </tr>
+        
+        <tr>
+            <td ><h4><strong>3.c.</strong></h4></td>
+          <td><h6>No. of FCD in 1st year of study under your mentorship (API Marks= 50 marks if 96-100% of the total No. of mentees allotted, 48 if 91-95%, 46 if 86-90%, 44 if 81-85%, 42 if 76-80%, 40 if 71-75%, 38 if 66-70%, 36 if 61-70%, 34 if 56-60%, 32 if 51-55%, 30 if 36-40%, 25 if 1-35%, 0 marks if 0% of your mentees secured FCD )</h6></td>
+           <td>{{ apf.c8B_No_of_FCD_in_1st_year_of_study_under_your_mentorship_score }}</td>
+        </tr>
+        <tr>
+            <td ><h4><strong>3.d.</strong></h4></td>
+          <td><h6>No. of UG/PG projects Co-guided (API= 10 marks if project is completed.)</h6></td>
+           <td>{{ apf.d8B_No_of_UG_or_PG_projects_Co_guided_score }}</td>
+        </tr>
+  </tbody>
+</table>
+
+<button class="Show btn btn-info" onClick="showHideDiv('middle')" >Click to show more details</button>
+</div>
+
+{% else %}
+
+<div style="overflow-x:auto;">
+<table class="table table-head-bg-primary table-striped table-hover">
+  <thead>
+    <tr>
+     <th class="tbfirst" style="width: 5%"><b>qn</b></th>
+        <th class="tblque" style="width: 88%"><b>Name</b></th>
+        <th class="tblvalue" style="width: 7%"></th>
+    </tr>
+  </thead>
+  <tbody>
+     <tr>
+            <td ><h4><strong>3.a.</strong></h4></td>
+          <td><h6>No. of projects guided (40 API marks if No is ≥1)</h6> </td>
+           <td>{{ apf.a8_No_of_projects_guided_score }}</td>
+   
+        </tr>
+        <br><br>
+        <tr>
+            <td ><h4><strong>3.b.</strong></h4></td>
+          <td><h6>No. of Best Projects Awarded (API Marks=60 for 1st place, 55 for 2nd place, 50 for 3rd place) <b>(OR)</b>
+                Student Project Exhibited in competitions/Symposiums. (API Marks=60 if won in competitions/symposium, 40 if only exhibited)    <b>(OR)</b><br>
+                Funded by external agency. (API marks= 60 if funds≥5000; 50 API marks if funds<5000)<b>(OR)</b>
+                Student Project Paper Publication(s) (60 API marks if No. of Pub.≥1)<br><br>
+                </h6> </td>
+           <td>{{ apf.b8_No_of_Best_Projects_Awarded_OR_Student_Project_Exhibited_in_competitions_or_Symposiums_OR_Funded_by_external_agency_OR_Student_Project_Paper_Publication_s_score }}</td>
+        </tr>
+        
+        <tr>
+            <td ><h4><strong>3.c.</strong></h4></td>
+          <td><h6>No. of students achieved vertical progression under your mentorship (API marks = 30 marks, if % of graduated is ≥90%, 25 for 81-89%, 20 for 71-79, 15 for 61-69.</h6></td>
+           <td>{{ apf.c8_No_of_students_achieved_vertical_progression_under_your_mentorship }}</td>
+        </tr>
+  </tbody>
+</table>
+
+<button class="Show btn btn-info" onClick="showHideDiv('middle')" >Click to show more details</button>
+</div>
+
+{% endif %} 
+
+<br>
+<div id="middle" style="display:none">
+<div style="overflow-x:auto;">
+  <table class="table table-head-bg-primary table-striped table-hover">
+    <thead>
+      <tr>
+      <th class="tbfirst" style="width: 5%"><b>qn</b></th>
+          <th class="tblque" style="width: 88%"><b>Name</b></th>
+          <th class="tblvalue" style="width: 7%"></th>
+      </tr>
+    </thead>
+    <tbody> 
+          <tr>
+              <td ><h4><strong>4.a.</strong></h4></td>
+            <td><h6>No. of papers published in journals (API marks = 20 API marks if No.≥2, 15 marks if No. <2, 0 marks if No. =0)</h6> </td>
+            <td>{{ apf2.a10_No_of_papers_published_in_journals_score }}</td>
+          </tr>
+
+          <tr>
+              <td ><h4><strong>4.b.</strong></h4></td>
+            <td><h6>No. of papers presented in conferences (API marks =20 if No.≥3, 15 if No.=2, 10 if No.=1)</h6> </td>
+            <td>{{ apf2.b10_No_of_papers_presented_in_conferences_score }}</td>
+          </tr>
+          
+          <tr>
+              <td ><h4><strong>4.c.</strong></h4></td>
+            <td><h6>No. of papers indexed in In Scopus/Web of Science/ UGC care list. (API marks = (No. of papers indexed in Scopus/Web of Science/ UGC care list /No. of papers Published (as per 10.a.))*40) <b>(OR)</b><br><br>
+            No. of book chapters authored (API marks =40 if #≥5, 35 if #=4, 30 if #=3, 25 if #=2, 20 if #=1) <b>(OR)</b>
+            No. of Books Authored (API marks = 40 if prescribed by any 2 universities, 35 if prescribed by 1 university, 30 if authored)</h6></td>
+            <td>{{ apf2.c10_No_of_papers_indexed_in_In_Scopus_or_Web_of_Science_or_UGC_care_list_OR_No_of_book_chapters_authored_OR_No_of_Books_Authored_score }}</td>
+          </tr>
+
+          <tr>
+              <td ><h4><strong>5.a</strong></h4></td>
+            <td><h6>No. of Research Project proposals submitted (API marks = 20 if submitted</h6></td>
+            <td>{{ apf2.a11_No_of_Research_Project_proposals_submitted_score }}</td>
+          </tr>
+
+          <tr>
+              <td ><h4><strong>5.b</strong></h4></td>
+            <td><h6>No. of Research projects Received and Amount (API marks =30 if Amount ≥4 lacs, 25 if Amount ≥ 1 and < 4lacs, 20 if Amount <1 lacs)</h6></td>
+            <td>{{ apf2.b11_No_of_Research_projects_Received_and_Amount_score }}</td>
+          </tr>
+
+          <tr>
+              <td ><h4><strong>6.a</strong></h4></td>
+            <td><h6>No. of Consultancy projects received/ongoing (≤1 lacs, 15 API marks,  >1 lacs, 20 API marks</h6></td>
+            <td>{{ apf2.a12_No_of_Consultancy_projects_received_OR_ongoing_score }}</td>
+          </tr>
+
+          <tr>
+              <td ><h4><strong>6.b</strong></h4></td>
+            <td><h6>No. of patents applied/ awarded (20 API marks if any No. of awarded, 15API marks if any No. applied)</h6></td>
+            <td>{{ apf2.b12_No_of_patents_applied_awarded_score }}</td>
+          </tr>
+    </tbody>
+  </table>
+  <button class="Show btn btn-info" onClick="showHideDiv('last')" >Click to show more details</button>
+</div>
+</div>
+<br>
+<div id="last" style="display:none">
+<div style="overflow-x:auto;">
+  <table class="table table-head-bg-primary table-striped table-hover">
+    <thead>
+      <tr>
+      <th class="tbfirst" style="width: 5%"><b>qn</b></th>
+          <th class="tblque" style="width: 88%"><b>Name</b></th>
+          <th class="tblvalue" style="width: 7%"></th>
+      </tr>
+    </thead>
+    <tbody>
+        
+          <tr>
+              <td ><h4><strong>7.a.</strong></h4></td>
+            <td><h6>Punctuality: Adherence to set schedules to reporting to duty, planning and executing set tasks, etc.</h6> </td>
+            <td>{{ apf3.a13 }}</td>
+          </tr>
+
+          <tr>
+              <td ><h4><strong>7.b.</strong></h4></td>
+            <td><h6>Behavior and Conduct: Maintains decorum of standards in ones conduct, way of behaving, etc.; maintain impartial work decorum, abhors insensitivity on basis of class, caste, creed, religion, etc.</h6> </td>
+            <td>{{ apf3.b13 }}</td>
+          </tr>
+          
+          <tr>
+              <td ><h4><strong>7.c.</strong></h4></td>
+            <td><h6>Performance on assigned jobs: Accurate, neat, attentive to detail, consistent, thorough, high standards, follows procedures.</h6></td>
+            <td>{{ apf3.c13 }}</td>
+          </tr>
+
+          <tr>
+              <td ><h4><strong>7.d</strong></h4></td>
+            <td><h6>Upholding and Contributing to the Institute’s Culture: Upholds Institutes’ beliefs and values, ethical standards, promote the institute in all spheres particularly in admission, etc.</h6></td>
+            <td>{{ apf3.d13 }}</td>
+          </tr>
+
+          <tr>
+              <td ><h4><strong>7.e</strong></h4></td>
+            <td><h6>Mentoring Efficacy: Ability and willingness to communicate, Preparedness, Approachability, availability, and the ability to listen, Honesty with diplomacy, Inquisitiveness, Objectivity and fairness, Compassion and genuineness, efficacy of communication with parents and mentees and maintenance of log book.</h6></td>
+            <td>{{ apf3.e13 }}</td>
+          </tr>
+
+          <tr>
+              <td ><h4><strong>7.f</strong></h4></td>
+            <td><h6>Team-man-ship: Exhibits collaboration, cooperation, coordination; Exhibits positive attitude, willingness to adapt, embraces team-work, Complementary Abilities, Mutual Accountability, Enabling Structure, and Inspiring Leader.</h6></td>
+            <td>{{ apf3.f13 }}</td>
+          </tr>
+
+          <tr>
+              <td ><h4><strong>8.a</strong></h4></td>
+            <td><h6>Academic Preparedness: Course File.</h6></td>
+            <td>{{ apf3.a14 }}</td>
+          </tr>
+
+          <tr>
+              <td ><h4><strong>8.b</strong></h4></td>
+            <td><h6>Assessment Efficacy: Conducting IAs/ CIE and other Assessments systematically, evaluation of Answer scripts, assignments and Lab. Documents justifiably, etc.</h6></td>
+            <td>{{ apf3.b14 }}</td>
+          </tr>
+
+          <tr>
+              <td ><h4><strong>8.c</strong></h4></td>
+            <td><h6>No. of Student Activities organized for 1st year students or Higher Semester students (API marks = 20 marks if co-curricular and collaborative, 15 marks if co-curricular and individual, 10 marks if extra-curricular and collaborative)</h6></td>
+            <td>{{ apf3.c14 }}</td>
+          </tr>
+
+          <tr>
+              <td ><h4><strong>9.a</strong></h4></td>
+            <td><h6>No. of Add-on Responsibilities / Contributions-Internal (committee membership/ event coordinator/Lead-in roles#/ etc.) (# such as designated responsibilities like convener, Mahadasara, etc.) (20 API marks if any no.)</h6></td>
+            <td>{{ apf3.a15 }}</td>
+          </tr>
+    </tbody>
+  </table>
+    <button class="Show btn btn-success" onClick="showHideDiv('API')" >See your API score</button>
+</div>
+</div>
+
+  <div id="API" style="display:none">
+    <div class="card" style="width: 21rem;">
+        <div class="card-body">
+            <h5 class="card-title justify-content-center"> Your Part II API Score : <b>{{ gapi.Part1APIscore }}/350</b></h5>
+            <h5 class="card-title justify-content-center"> Your Part III API Score : <b>{{ gapi.part2APIscore }}/170</b></h5>
+            <h5 class="card-title justify-content-center"> Your Part IV API Score : <b>{{ gapi.part3APIscore }}/180</b></h5>
+            <h5 class="card-title justify-content-center"> Your Grand API Score : <b>{{ gapi.GrandScore }}/100</b></h5>
+        </div>
+    </div>
+  </div>
+
+
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+</div>
+    
+    {% block style %}
+    
+        <style>
+            .card {
+                    margin: 0 auto; /* Added */
+                    float: none; /* Added */
+                    margin-bottom: 10px; /* Added */
+                }
+        </style>
+        <script>
+
+        function showHideDiv(ele) {
+                var srcElement = document.getElementById(ele);
+                if (srcElement != null) {
+                    if (srcElement.style.display == "block") {
+                        srcElement.style.display = 'none';
+                    }
+                    else {
+                        srcElement.style.display = 'block';
+                    }
+                    return false;
+                }
+            }
+
+        </script>
+    {% endblock style %}
+
+{% endblock content %}

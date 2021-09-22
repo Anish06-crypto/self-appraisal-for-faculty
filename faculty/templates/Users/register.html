@@ -1,0 +1,203 @@
+{% extends 'base_admin.html' %}
+{% load static %}
+
+{% block title %}Register{% endblock title %}
+
+{% block style %}
+
+    <!-- Jquery JS-->
+    <script src="{% static 'adminvendor/jquery/jquery.min.js'%}"></script>
+    <!-- Vendor JS-->
+    <script src="{% static 'adminvendor/select2/select2.min.js'%}"></script>
+    <script src="{% static 'adminvendor/datepicker/moment.min.js'%}"></script>
+    <script src="{% static 'adminvendor/datepicker/daterangepicker.js'%}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+
+    <!-- Main JS-->
+    <script src="{% static 'adminjs/global.js'%}"></script>
+    <!-- Icons font CSS-->
+    <link href="{% static 'adminvendor/mdi-font/css/material-design-iconic-font.min.css'%}" rel="stylesheet" media="all">
+    <link href="{% static 'adminvendor/font-awesome-4.7/css/font-awesome.min.css'%}" rel="stylesheet" media="all">
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Vendor CSS-->
+    <link href="{% static 'adminvendor/select2/select2.min.css'%}" rel="stylesheet" media="all">
+    <link href="{% static 'adminvendor/datepicker/daterangepicker.css'%}" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="{% static 'admincss/main.css'%}" rel="stylesheet" media="all">
+<script type="text/javascript">
+        function Validate() {
+            var password = document.getElementById("1stPassword").value;
+            var confirmPassword = document.getElementById("ConfirmPassword").value;
+            if (password != confirmPassword) {
+                alert("password does not match.");
+                return false;
+            }
+            return true;
+        }
+
+          function yesnoCheck() {
+    if (document.getElementById('yesCheck').checked) {
+        document.getElementById('ifYes').style.visibility = 'visible';
+    }
+    else document.getElementById('ifYes').style.visibility = 'hidden';
+
+
+
+}
+
+</script>
+
+{% endblock style %}
+
+{% block content %}
+
+<div class="main-panel">
+                <div class="content">
+                    <div class="container-fluid">
+                        <h4 class="page-title">Register</h4>
+                        <div class="row">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <div class="card-title">Register Form</div>
+                                    </div>
+                                    <div class="card-body">
+                            <form method="post" class="register_form">
+                                {% csrf_token %}
+                                 <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="Name">Name</label>
+                                            <input type="text" class="form-control" id="Name" name="Name" placeholder="Enter Name">
+                                        </div>
+                                    </div>
+                                        <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="Staff_id">Staff id</label>
+                                            <input type="text" class="form-control" id="Staff_id" name="Staff_id" placeholder="Enter Staff id">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="Department">Department</label>
+                                            <input type="text" class="form-control" id="Department" name="Department" placeholder="Enter Department">
+                                        </div>
+                                    </div>
+                                        <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="ph_num">Phone num</label>
+                                            <input type="text" class="form-control" id="ph_num" name="ph_num" placeholder="Enter Phone number">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                        <div class="form-group">
+                                            <label for="Department">E-mail</label>
+                                            <input type="email" class="form-control" id="E-mail" name="email" placeholder="Enter E-mail">
+                                        </div>
+
+                                        <div class="row">
+                                        <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="Designation">Present Designation</label>
+                                            <input type="text" class="form-control" id="Designation" name="Designation" placeholder="Enter Designation">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="joining_date">Joining Date</label>
+                                            <div class="input-group-icon">
+                                        <input class="input--style-4 js-datepicker" type="text" name="Designation_date">
+                                        <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+                                    </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                        
+                                <div class="row">
+                                        <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="Joining_mit">Years of Service at MITM</label>
+                                            <input type="number" class="form-control" id="Joining_mit" name="Joining_mit" >
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="Pre_exp">Previous Experience</label>
+                                            <input type="number" class="form-control" id="Pre_exp" name="Pre_exp" >
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                        <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="Qualification">Highest Qualification</label>
+                                            <input type="text" class="form-control" id="Qualification" name="Qualification" >
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="Specialization">Specialization</label>
+                                            <input type="text" class="form-control" id="Specialization" name="Specialization" >
+                                        </div>
+                                    </div>
+                                </div>
+                                
+
+                                <div class="row">
+                                        <div class="col-md-6">
+                                          <div class="form-check">
+                                            <label>Recognized as a Research Guide?</label><br/>
+                                            <label class="form-radio-label">
+                                                <input class="form-radio-input" type="radio" name="optionsRadios" value="" onclick="yesnoCheck();" id="yesCheck">
+                                                <span class="form-radio-sign">yes</span>
+                                            </label>
+                                            <label class="form-radio-label ml-3">
+                                                <input class="form-radio-input" type="radio" name="optionsRadios" value="" onclick="yesnoCheck();" id="noCheck">
+                                                <span class="form-radio-sign">no</span>
+                                            </label>
+                                        </div>
+                                        </div>
+                                    <div class="col-md-6" id="ifYes" style="visibility:hidden">
+                                        <div class="form-group">
+                                            <label for="candidates">If yes! Number of candidates being supervised</label>
+                                            <input value=="0" type="number" class="form-control" id="candidates" name="candidates" >
+                                        </div>
+                                    </div>
+                                </div>
+
+                                 <div class="row">
+                                        <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="password">password</label>
+                                            <input type="password" class="form-control" id="1stPassword" name="firstPassword" >
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="Retypepass">Re-type Password</label>
+                                            <input type="password" class="form-control" id="ConfirmPassword" name="ConfirmPassword" >
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                        <div class="card-action">
+                                            <button class="btn btn-success" id="btnsubmit" type="submit" onclick="return Validate()">Submit</button>
+                                        </div>
+                                        </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
