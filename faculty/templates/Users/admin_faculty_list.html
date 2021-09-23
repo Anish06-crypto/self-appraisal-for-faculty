@@ -7,11 +7,14 @@
 
 <style>
 
-	.messages {
-                  color: #006400;
-	                background-color: #00FF7F;
-                  border: 1px solid #ccc;
-          }
+	.card {
+                    margin: 0 auto; /* Added */
+                    float: none; /* Added */
+                    margin-bottom: 10px; /* Added */
+					color: #006400;
+	                {% comment %} background-color: #00FF7F; {% endcomment %}
+                  	border: 1px solid #ccc;
+                }
 
 </style>
 
@@ -19,11 +22,16 @@
 
 <div class="main-panel">
 	<div class="content">
-										{% comment %} <ul class="messages">
-											{% for message in messages %}
-												<h4>{{ message }}</h4>
-											{% endfor %}
-										</ul> {% endcomment %}
+
+
+							<div class="card" style="width: 16rem;">
+								<div class="card-body">
+									{% for message in messages %}
+										<h4 class="card-title justify-content-center">{{ message }}</h4>
+									{% endfor %}
+								</div>
+							</div>
+
 							    <div class="card">
 									<div class="card-header ">
 										<h6>Backup Dates</h6>
@@ -49,7 +57,8 @@
 													<th scope="col">Designation</th>
                                                     <th scope="col">Department</th>
                                                     <th scope="col">Staff ID</th>
-													<th scope="col">Edit</th>
+													<th scope="col">Edit Details</th>
+													<th scope="col">Reset Password</th>
 													<th scope="col">Remove</th>
 												</tr>
 											</thead>
@@ -61,7 +70,8 @@
                                                             <td>{{ staff.Department }}</td>
                                                             <td>{{ staff.Staff_ID }}</td>
 															<td><a class="btn btn-success" href="{% url 'forgot_password' staff.Staff_ID %}">Edit</a></td>
-															<td><a class="btn btn-warning" href="{% url 'deletef' staff.Staff_ID %}">Delete</a></td>
+															<td><a class="btn btn-warning" onclick="return confirm('Are you sure you want to reset password?')" href="{% url 'reset_password' staff.Staff_ID %}">Reset</a></td>
+															<td><a class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this faculty?')" href="{% url 'deletef' staff.Staff_ID %}">Delete</a></td>
                                                             </tr>
                                                 {% endfor %}
 											</tbody>

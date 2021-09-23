@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin_faculty', views.admin_staff_list),
     path('register', views.register),
     path('forgot_pwd/<str:user>',views.forgot_password, name='forgot_password'),
+    path('reset_pwd/<str:user>',views.reset_password, name='reset_password'),
     path('change_password', views.changePassword),
     path('change_passwordD', views.changePasswordD),
     path('change_password_hod', views.changePasswordhod),

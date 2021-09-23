@@ -15,7 +15,7 @@ class PersonalDetail(models.Model):
     Whether_HOD = models.BooleanField(default=False)
     Highest_Qualification = models.CharField(max_length=200)
     Recognized_as_a_Research_Guide = models.CharField(max_length=100)
-    Years_of_Service_at_MITM = models.CharField(max_length=10,null=True)
+    Years_of_Service_at_MITM = models.CharField(max_length=10,null=True,default=0)
     Staff_ID = models.CharField(max_length=20, unique=True)
     Password = models.CharField(max_length=50)
     Mail_Id = models.EmailField()

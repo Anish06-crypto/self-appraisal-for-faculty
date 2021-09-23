@@ -112,20 +112,21 @@
                                         <div class="form-group">
                                             <label for="joining_date">Joining Date</label>
                                             <div class="input-group-icon">
-                                        <input class="input--style-4 js-datepicker" type="text" name="Designation_date">
-                                        <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+                                        <input class="input--style-4 js-datepicker" type="text" placeholder='Format: YYYY-MM-DD 00:00:00' name="Designation_date">
+                                        <p> Please enter in the format specified. <b>YYYY-MM-DD 00:00:00</b>.</p>
+                                        <p>Keep the 00:00:00 as the default entry after joining date.</p>
                                     </div>
                                         </div>
                                     </div>
                                 </div>
                                         
                                 <div class="row">
-                                        <div class="col-md-6">
+                                        {% comment %} <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="Joining_mit">Years of Service at MITM</label>
                                             <input type="number" class="form-control" id="Joining_mit" name="Joining_mit" >
                                         </div>
-                                    </div>
+                                    </div> {% endcomment %}
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="Pre_exp">Previous Experience</label>
@@ -155,19 +156,19 @@
                                           <div class="form-check">
                                             <label>Recognized as a Research Guide?</label><br/>
                                             <label class="form-radio-label">
-                                                <input class="form-radio-input" type="radio" name="optionsRadios" value="" onclick="yesnoCheck();" id="yesCheck">
-                                                <span class="form-radio-sign">yes</span>
+                                                <input class="form-radio-input" type="radio" name="optionsRadios" value="Yes" onclick="yesnoCheck();" id="yesCheck">
+                                                <span class="form-radio-sign">Yes</span>
                                             </label>
                                             <label class="form-radio-label ml-3">
-                                                <input class="form-radio-input" type="radio" name="optionsRadios" value="" onclick="yesnoCheck();" id="noCheck">
-                                                <span class="form-radio-sign">no</span>
+                                                <input class="form-radio-input" type="radio" name="optionsRadios" value="No" onclick="yesnoCheck();" id="noCheck">
+                                                <span class="form-radio-sign">No</span>
                                             </label>
                                         </div>
                                         </div>
                                     <div class="col-md-6" id="ifYes" style="visibility:hidden">
                                         <div class="form-group">
                                             <label for="candidates">If yes! Number of candidates being supervised</label>
-                                            <input value=="0" type="number" class="form-control" id="candidates" name="candidates" >
+                                            <input value="0" type="number" class="form-control" id="candidates" name="candidates" >
                                         </div>
                                     </div>
                                 </div>

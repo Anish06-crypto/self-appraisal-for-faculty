@@ -304,8 +304,6 @@ def forgot_password(request,user):
                 Specialization = request.POST['Specialization'] 
                 # optionsRadios = request.POST['optionsRadios'] 
                 # candidates = request.POST['candidates'] 
-                firstPassword = request.POST['firstPassword']
-                staff.Password = firstPassword
                 staff.Name = name
                 staff.Staff_ID = Staff_id
                 staff.Department = Department
@@ -323,6 +321,24 @@ def forgot_password(request,user):
     else:
         return redirect('/log-in')
     return render(request, 'Users/forgot_password.html', context)
+
+def reset_password(request,user):
+    if request.session.get('admin',False):
+        admin = request.session['admin']
+        if PersonalDetail.objects.filter(Staff_ID=admin).exists():
+            if PersonalDetail.objects.filter(Staff_ID=user).exists(): 
+                staff = PersonalDetail.objects.get(Staff_ID=user)
+                staff.Password = user
+                staff.save()
+                messages.success(request,'Password reset successful.')
+                return redirect('/admin_faculty')
+            else:
+                messages.success(request,'Password reset unsuccessful.')
+                return redirect('/log-in')
+        else:
+            return redirect('/log-in')
+    else:
+        return redirect('/log-in')
 
 def changePassword(request):
     if request.session.get('faculty', False):
@@ -420,7 +436,7 @@ def register(request):
                 email = request.POST['email'] 
                 Designation = request.POST['Designation'] 
                 joining_date = request.POST['Designation_date'] 
-                Joining_mit = request.POST['Joining_mit'] 
+                # Joining_mit = request.POST['Joining_mit'] 
                 Pre_exp = request.POST['Pre_exp'] 
                 Qualification = request.POST['Qualification'] 
                 Specialization = request.POST['Specialization'] 
@@ -429,7 +445,7 @@ def register(request):
                 firstPassword = request.POST['firstPassword'] 
                 pd = PersonalDetail(Name=name,Department=Department,Staff_ID=Staff_id,
                                     Contact_No=ph_num,Mail_Id=email,Present_Designation=Designation,
-                                    Date_on_which_Acquired=joining_date,Years_of_Service_at_MITM=Joining_mit,
+                                    Date_of_joining=joining_date,
                                     total_years=Pre_exp,Highest_Qualification=Qualification,Specialization=Specialization,
                                     Recognized_as_a_Research_Guide=optionsRadios,If_yes_Number_of_candidates_being_supervised=candidates,
                                     Password=firstPassword)
