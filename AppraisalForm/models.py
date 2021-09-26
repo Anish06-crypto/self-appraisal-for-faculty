@@ -56,6 +56,26 @@ class AppraisalForm(models.Model):
     Percent_over_604 = models.IntegerField(null=True, default=0)
     Sub_code4 = models.CharField(max_length=200, null=True, default=0)
 
+    No_of_students5 = models.IntegerField(null=True)
+    Percentage_of_pass5 = models.IntegerField(null=True)
+    Percent_over_605 = models.IntegerField(null=True)
+    Sub_code5 = models.CharField(max_length=200, null=True)
+
+    No_of_students6 = models.IntegerField(null=True, default=0)
+    Percentage_of_pass6 = models.IntegerField(null=True, default=0)
+    Percent_over_606 = models.IntegerField(null=True, default=0)
+    Sub_code6 = models.CharField(max_length=200, null=True, default=0)
+
+    No_of_students7 = models.IntegerField(null=True, default=0)
+    Percentage_of_pass7 = models.IntegerField(null=True, default=0)  
+    Percent_over_607 = models.IntegerField(null=True, default=0)
+    Sub_code7 = models.CharField(max_length=200, null=True, default=0)
+
+    No_of_students8 = models.IntegerField(null=True, default=0)
+    Percentage_of_pass8 = models.IntegerField(null=True, default=0)
+    Percent_over_608 = models.IntegerField(null=True, default=0)
+    Sub_code8 = models.CharField(max_length=200, null=True, default=0)
+
     Percentage_of_pass1_hod = models.IntegerField(null=True)
     Percent_over_601_hod = models.IntegerField(null=True)
 
@@ -67,6 +87,18 @@ class AppraisalForm(models.Model):
 
     Percentage_of_pass4_hod = models.IntegerField(null=True, default=0)
     Percent_over_604_hod = models.IntegerField(null=True, default=0)
+
+    Percentage_of_pass5_hod = models.IntegerField(null=True)
+    Percent_over_605_hod = models.IntegerField(null=True)
+
+    Percentage_of_pass6_hod = models.IntegerField(null=True, default=0)
+    Percent_over_606_hod = models.IntegerField(null=True, default=0)
+
+    Percentage_of_pass7_hod = models.IntegerField(null=True, default=0)  
+    Percent_over_607_hod = models.IntegerField(null=True, default=0)
+
+    Percentage_of_pass8_hod = models.IntegerField(null=True, default=0)
+    Percent_over_608_hod = models.IntegerField(null=True, default=0)
 
     a7_Sub_Code_of_theory_Subjects_taught_and_No_of_Students_score = models.IntegerField(
         default=0,
@@ -129,27 +161,66 @@ class AppraisalForm(models.Model):
 
     def avg_of_passpercent_hod(self):
         if self.a7HOD_score == 0:
-            if self.Percentage_of_pass2_hod == 0 and self.Percentage_of_pass3_hod == 0 and self.Percentage_of_pass4_hod == 0:
+
+            if self.Percentage_of_pass2_hod == 0 and self.Percentage_of_pass3_hod == 0 and self.Percentage_of_pass4_hod == 0 and self.Percentage_of_pass5_hod == 0 and self.Percentage_of_pass6_hod == 0 and self.Percentage_of_pass7_hod == 0 and self.Percentage_of_pass8_hod == 0:
                 p1 = ((self.Percentage_of_pass1_hod*0.01)*30)
                 self.a7HOD_score = p1 
                 self.a7P_score = self.a7HOD_score
-            elif self.Percentage_of_pass3_hod == 0 and self.Percentage_of_pass4_hod == 0:
+            elif self.Percentage_of_pass3_hod == 0 and self.Percentage_of_pass4_hod == 0 and self.Percentage_of_pass5_hod == 0 and self.Percentage_of_pass6_hod == 0 and self.Percentage_of_pass7_hod == 0 and self.Percentage_of_pass8_hod == 0:
                 p1 = ((self.Percentage_of_pass1_hod*0.01)*30)
                 p2 = ((self.Percentage_of_pass2_hod*0.01)*30)
                 self.a7HOD_score = (p1 + p2) / 2
                 self.a7P_score = self.a7HOD_score
-            elif self.Percentage_of_pass4_hod == 0:
+            elif self.Percentage_of_pass4_hod == 0 and self.Percentage_of_pass5_hod == 0 and self.Percentage_of_pass6_hod == 0 and self.Percentage_of_pass7_hod == 0 and self.Percentage_of_pass8_hod == 0:
                 p1 = ((self.Percentage_of_pass1_hod*0.01)*30)
                 p2 = ((self.Percentage_of_pass2_hod*0.01)*30) 
                 p3 = ((self.Percentage_of_pass3_hod*0.01)*30)
                 self.a7HOD_score = (p1 + p2 + p3) / 3
+                self.a7P_score = self.a7HOD_score
+            elif self.Percentage_of_pass5_hod == 0 and self.Percentage_of_pass6_hod == 0 and self.Percentage_of_pass7_hod == 0 and self.Percentage_of_pass8_hod == 0:
+                p1 = ((self.Percentage_of_pass1_hod*0.01)*30)
+                p2 = ((self.Percentage_of_pass2_hod*0.01)*30) 
+                p3 = ((self.Percentage_of_pass3_hod*0.01)*30) 
+                p4 = ((self.Percentage_of_pass4_hod*0.01)*30)
+                self.a7HOD_score = (p1 + p2 + p3 + p4) / 4
+                self.a7P_score = self.a7HOD_score
+            elif self.Percentage_of_pass6_hod == 0 and self.Percentage_of_pass7_hod == 0 and self.Percentage_of_pass8_hod == 0:
+                p1 = ((self.Percentage_of_pass1_hod*0.01)*30)
+                p2 = ((self.Percentage_of_pass2_hod*0.01)*30) 
+                p3 = ((self.Percentage_of_pass3_hod*0.01)*30) 
+                p4 = ((self.Percentage_of_pass4_hod*0.01)*30)
+                p5 = ((self.Percentage_of_pass5_hod*0.01)*30)
+                self.a7HOD_score = (p1 + p2 + p3 + p4 + p5) / 5
+                self.a7P_score = self.a7HOD_score
+            elif self.Percentage_of_pass7_hod == 0 and self.Percentage_of_pass8_hod == 0:
+                p1 = ((self.Percentage_of_pass1_hod*0.01)*30)
+                p2 = ((self.Percentage_of_pass2_hod*0.01)*30) 
+                p3 = ((self.Percentage_of_pass3_hod*0.01)*30) 
+                p4 = ((self.Percentage_of_pass4_hod*0.01)*30)
+                p5 = ((self.Percentage_of_pass5_hod*0.01)*30)
+                p6 = ((self.Percentage_of_pass6_hod*0.01)*30)
+                self.a7HOD_score = (p1 + p2 + p3 + p4 + p5 + p6) / 6
+                self.a7P_score = self.a7HOD_score
+            elif self.Percentage_of_pass8_hod == 0:
+                p1 = ((self.Percentage_of_pass1_hod*0.01)*30)
+                p2 = ((self.Percentage_of_pass2_hod*0.01)*30) 
+                p3 = ((self.Percentage_of_pass3_hod*0.01)*30) 
+                p4 = ((self.Percentage_of_pass4_hod*0.01)*30)
+                p5 = ((self.Percentage_of_pass5_hod*0.01)*30)
+                p6 = ((self.Percentage_of_pass6_hod*0.01)*30)
+                p7 = ((self.Percentage_of_pass7_hod*0.01)*30)
+                self.a7HOD_score = (p1 + p2 + p3 + p4 + p5 + p6 + p7) / 7
                 self.a7P_score = self.a7HOD_score
             else:
                 p1 = ((self.Percentage_of_pass1_hod*0.01)*30)
                 p2 = ((self.Percentage_of_pass2_hod*0.01)*30) 
                 p3 = ((self.Percentage_of_pass3_hod*0.01)*30) 
                 p4 = ((self.Percentage_of_pass4_hod*0.01)*30)
-                self.a7HOD_score = (p1 + p2 + p3 + p4) / 4
+                p5 = ((self.Percentage_of_pass5_hod*0.01)*30)
+                p6 = ((self.Percentage_of_pass6_hod*0.01)*30)
+                p7 = ((self.Percentage_of_pass7_hod*0.01)*30)
+                p8 = ((self.Percentage_of_pass8_hod*0.01)*30)
+                self.a7HOD_score = (p1 + p2 + p3 + p4 + p5 + p6 + p7 + p8) / 8
                 self.a7P_score = self.a7HOD_score
             return self.a7HOD_score,self.a7P_score
         else:
@@ -157,27 +228,65 @@ class AppraisalForm(models.Model):
 
     def avg_of_passpercent_over60_hod(self):
         if self.b7HOD_score == 0:
-            if self.Percent_over_602_hod == 0 and self.Percent_over_603_hod == 0 and self.Percent_over_604_hod == 0:
+            if self.Percent_over_602_hod == 0 and self.Percent_over_603_hod == 0 and self.Percent_over_604_hod == 0 and self.Percent_over_605_hod == 0 and self.Percent_over_606_hod == 0 and self.Percent_over_607_hod == 0 and self.Percent_over_608_hod == 0:
                 p601 = ((self.Percent_over_601_hod/self.Percentage_of_pass1_hod)*40)
                 self.b7HOD_score = p601
                 self.b7P_score = self.b7HOD_score 
-            elif self.Percent_over_603_hod == 0 and self.Percent_over_604_hod == 0:
+            elif self.Percent_over_603_hod == 0 and self.Percent_over_604_hod == 0 and self.Percent_over_605_hod == 0 and self.Percent_over_606_hod == 0 and self.Percent_over_607_hod == 0 and self.Percent_over_608_hod == 0:
                 p601 = ((self.Percent_over_601_hod/self.Percentage_of_pass1_hod)*40)
                 p602 = ((self.Percent_over_602_hod/self.Percentage_of_pass2_hod)*40)
                 self.b7HOD_score = (p601 + p602) / 2
                 self.b7P_score = self.b7HOD_score
-            elif self.Percent_over_604_hod == 0:
+            elif self.Percent_over_604_hod == 0 and self.Percent_over_605_hod == 0 and self.Percent_over_606_hod == 0 and self.Percent_over_607_hod == 0 and self.Percent_over_608_hod == 0:
                 p601 = ((self.Percent_over_601_hod/self.Percentage_of_pass1_hod)*40)
                 p602 = ((self.Percent_over_602_hod/self.Percentage_of_pass2_hod)*40) 
                 p603 = ((self.Percent_over_603_hod/self.Percentage_of_pass3_hod)*40)
                 self.b7HOD_score = (p601 + p602 + p603) / 3
+                self.b7P_score = self.b7HOD_score
+            elif self.Percent_over_605_hod == 0 and self.Percent_over_606_hod == 0 and self.Percent_over_607_hod == 0 and self.Percent_over_608_hod == 0:
+                p601 = ((self.Percent_over_601_hod/self.Percentage_of_pass1_hod)*40)
+                p602 = ((self.Percent_over_602_hod/self.Percentage_of_pass2_hod)*40) 
+                p603 = ((self.Percent_over_603_hod/self.Percentage_of_pass3_hod)*40) 
+                p604 = ((self.Percent_over_604_hod/self.Percentage_of_pass4_hod)*40)
+                self.b7HOD_score = (p601 + p602 + p603 + p604) / 4
+                self.b7P_score = self.b7HOD_score 
+            elif self.Percent_over_606_hod == 0 and self.Percent_over_607_hod == 0 and self.Percent_over_608_hod == 0:
+                p601 = ((self.Percent_over_601_hod/self.Percentage_of_pass1_hod)*40)
+                p602 = ((self.Percent_over_602_hod/self.Percentage_of_pass2_hod)*40) 
+                p603 = ((self.Percent_over_603_hod/self.Percentage_of_pass3_hod)*40) 
+                p604 = ((self.Percent_over_604_hod/self.Percentage_of_pass4_hod)*40)
+                p605 = ((self.Percent_over_605_hod/self.Percentage_of_pass5_hod)*40)
+                self.b7HOD_score = (p601 + p602 + p603 + p604 + p605) / 5
+                self.b7P_score = self.b7HOD_score
+            elif self.Percent_over_607_hod == 0 and self.Percent_over_608_hod == 0:
+                p601 = ((self.Percent_over_601_hod/self.Percentage_of_pass1_hod)*40)
+                p602 = ((self.Percent_over_602_hod/self.Percentage_of_pass2_hod)*40) 
+                p603 = ((self.Percent_over_603_hod/self.Percentage_of_pass3_hod)*40) 
+                p604 = ((self.Percent_over_604_hod/self.Percentage_of_pass4_hod)*40)
+                p605 = ((self.Percent_over_605_hod/self.Percentage_of_pass5_hod)*40)
+                p606 = ((self.Percent_over_606_hod/self.Percentage_of_pass6_hod)*40)
+                self.b7HOD_score = (p601 + p602 + p603 + p604 + p605  + p606) / 6
+                self.b7P_score = self.b7HOD_score
+            elif self.Percent_over_607_hod == 0:
+                p601 = ((self.Percent_over_601_hod/self.Percentage_of_pass1_hod)*40)
+                p602 = ((self.Percent_over_602_hod/self.Percentage_of_pass2_hod)*40) 
+                p603 = ((self.Percent_over_603_hod/self.Percentage_of_pass3_hod)*40) 
+                p604 = ((self.Percent_over_604_hod/self.Percentage_of_pass4_hod)*40)
+                p605 = ((self.Percent_over_605_hod/self.Percentage_of_pass5_hod)*40)
+                p606 = ((self.Percent_over_606_hod/self.Percentage_of_pass6_hod)*40)
+                p607 = ((self.Percent_over_607_hod/self.Percentage_of_pass7_hod)*40)
+                self.b7HOD_score = (p601 + p602 + p603 + p604 + p605  + p606 + p607) / 7
                 self.b7P_score = self.b7HOD_score
             else:
                 p601 = ((self.Percent_over_601_hod/self.Percentage_of_pass1_hod)*40)
                 p602 = ((self.Percent_over_602_hod/self.Percentage_of_pass2_hod)*40) 
                 p603 = ((self.Percent_over_603_hod/self.Percentage_of_pass3_hod)*40) 
                 p604 = ((self.Percent_over_604_hod/self.Percentage_of_pass4_hod)*40)
-                self.b7HOD_score = (p601 + p602 + p603 + p604) / 4
+                p605 = ((self.Percent_over_605_hod/self.Percentage_of_pass5_hod)*40)
+                p606 = ((self.Percent_over_606_hod/self.Percentage_of_pass6_hod)*40)
+                p607 = ((self.Percent_over_607_hod/self.Percentage_of_pass7_hod)*40)
+                p608 = ((self.Percent_over_608_hod/self.Percentage_of_pass8_hod)*40)
+                self.b7HOD_score = (p601 + p602 + p603 + p604 + p605  + p606 + p607 + p608) / 8
                 self.b7P_score = self.b7HOD_score
             return self.b7HOD_score,self.b7P_score  
         else:
@@ -185,49 +294,117 @@ class AppraisalForm(models.Model):
 
     def avg_of_passpercent(self):
         if self.a7_Sub_Code_of_theory_Subjects_taught_and_No_of_Students_score == 0:
-            if self.Percentage_of_pass2 == 0 and self.Percentage_of_pass3 == 0 and self.Percentage_of_pass4 == 0:
+            if self.Percentage_of_pass2 == 0 and self.Percentage_of_pass3 == 0 and self.Percentage_of_pass4 == 0 and self.Percentage_of_pass5 == 0 and self.Percentage_of_pass6 == 0 and self.Percentage_of_pass7 == 0 and self.Percentage_of_pass8 == 0:
                 p1 = ((self.Percentage_of_pass1*0.01)*30)
                 self.a7_Sub_Code_of_theory_Subjects_taught_and_No_of_Students_score = p1 
-            elif self.Percentage_of_pass3 == 0 and self.Percentage_of_pass4 == 0:
+            elif self.Percentage_of_pass3 == 0 and self.Percentage_of_pass4 == 0 and self.Percentage_of_pass5 == 0 and self.Percentage_of_pass6 == 0 and self.Percentage_of_pass7 == 0 and self.Percentage_of_pass8 == 0:
                 p1 = ((self.Percentage_of_pass1*0.01)*30)
                 p2 = ((self.Percentage_of_pass2*0.01)*30)
                 self.a7_Sub_Code_of_theory_Subjects_taught_and_No_of_Students_score = (p1 + p2) / 2
-            elif self.Percentage_of_pass4 == 0:
+            elif self.Percentage_of_pass4 == 0 and self.Percentage_of_pass5 == 0 and self.Percentage_of_pass6 == 0 and self.Percentage_of_pass7 == 0 and self.Percentage_of_pass8 == 0:
                 p1 = ((self.Percentage_of_pass1*0.01)*30)
                 p2 = ((self.Percentage_of_pass2*0.01)*30) 
                 p3 = ((self.Percentage_of_pass3*0.01)*30)
                 self.a7_Sub_Code_of_theory_Subjects_taught_and_No_of_Students_score = (p1 + p2 + p3) / 3
-            else:
+            elif self.Percentage_of_pass5 == 0 and self.Percentage_of_pass6 == 0 and self.Percentage_of_pass7 == 0 and self.Percentage_of_pass8 == 0:
                 p1 = ((self.Percentage_of_pass1*0.01)*30)
                 p2 = ((self.Percentage_of_pass2*0.01)*30) 
                 p3 = ((self.Percentage_of_pass3*0.01)*30) 
                 p4 = ((self.Percentage_of_pass4*0.01)*30)
                 self.a7_Sub_Code_of_theory_Subjects_taught_and_No_of_Students_score = (p1 + p2 + p3 + p4) / 4
+            elif self.Percentage_of_pass6 == 0 and self.Percentage_of_pass7 == 0 and self.Percentage_of_pass8 == 0:
+                p1 = ((self.Percentage_of_pass1*0.01)*30)
+                p2 = ((self.Percentage_of_pass2*0.01)*30) 
+                p3 = ((self.Percentage_of_pass3*0.01)*30) 
+                p4 = ((self.Percentage_of_pass4*0.01)*30)
+                p5 = ((self.Percentage_of_pass5*0.01)*30)
+                self.a7_Sub_Code_of_theory_Subjects_taught_and_No_of_Students_score = (p1 + p2 + p3 + p4 + p5) / 5
+            elif self.Percentage_of_pass7 == 0 and self.Percentage_of_pass8 == 0:
+                p1 = ((self.Percentage_of_pass1*0.01)*30)
+                p2 = ((self.Percentage_of_pass2*0.01)*30) 
+                p3 = ((self.Percentage_of_pass3*0.01)*30) 
+                p4 = ((self.Percentage_of_pass4*0.01)*30)
+                p5 = ((self.Percentage_of_pass5*0.01)*30)
+                p6 = ((self.Percentage_of_pass6*0.01)*30)
+                self.a7_Sub_Code_of_theory_Subjects_taught_and_No_of_Students_score = (p1 + p2 + p3 + p4 + p5 + p6) / 6
+            elif self.Percentage_of_pass8 == 0:
+                p1 = ((self.Percentage_of_pass1*0.01)*30)
+                p2 = ((self.Percentage_of_pass2*0.01)*30) 
+                p3 = ((self.Percentage_of_pass3*0.01)*30) 
+                p4 = ((self.Percentage_of_pass4*0.01)*30)
+                p5 = ((self.Percentage_of_pass5*0.01)*30)
+                p6 = ((self.Percentage_of_pass6*0.01)*30)
+                p7 = ((self.Percentage_of_pass7*0.01)*30)
+                self.a7_Sub_Code_of_theory_Subjects_taught_and_No_of_Students_score = (p1 + p2 + p3 + p4 + p5 + p6 + p7) / 7
+            else:
+                p1 = ((self.Percentage_of_pass1*0.01)*30)
+                p2 = ((self.Percentage_of_pass2*0.01)*30) 
+                p3 = ((self.Percentage_of_pass3*0.01)*30) 
+                p4 = ((self.Percentage_of_pass4*0.01)*30)
+                p5 = ((self.Percentage_of_pass5*0.01)*30)
+                p6 = ((self.Percentage_of_pass6*0.01)*30)
+                p7 = ((self.Percentage_of_pass7*0.01)*30)
+                p8 = ((self.Percentage_of_pass8*0.01)*30)
+                self.a7_Sub_Code_of_theory_Subjects_taught_and_No_of_Students_score = (p1 + p2 + p3 + p4 + p5 + p6 + p7 + p8) / 8
             return self.a7_Sub_Code_of_theory_Subjects_taught_and_No_of_Students_score
         else:
             return 
 
     def avg_of_passpercent_over60(self):
         if self.b7_Percentage_of_Students_scoring_gt_60_score == 0:
-            if self.Percent_over_602 == 0 and self.Percent_over_603 == 0 and self.Percent_over_604 == 0:
+            if self.Percent_over_602 == 0 and self.Percent_over_603 == 0 and self.Percent_over_604 == 0 and self.Percent_over_605 == 0 and self.Percent_over_606 == 0 and self.Percent_over_607 == 0 and self.Percent_over_608 == 0:
                 p601 = ((self.Percent_over_601/self.Percentage_of_pass1)*40)
                 self.b7_Percentage_of_Students_scoring_gt_60_score = p601 
-            elif self.Percent_over_603 == 0 and self.Percent_over_604 == 0:
+            elif self.Percent_over_603 == 0 and self.Percent_over_604 == 0 and self.Percent_over_605 == 0 and self.Percent_over_606 == 0 and self.Percent_over_607 == 0 and self.Percent_over_608 == 0:
                 p601 = ((self.Percent_over_601/self.Percentage_of_pass1)*40)
                 p602 = ((self.Percent_over_602/self.Percentage_of_pass2)*40)
                 self.b7_Percentage_of_Students_scoring_gt_60_score = (p601 + p602) / 2
-            elif self.Percent_over_604 == 0:
+            elif self.Percent_over_604 == 0 and self.Percent_over_605 == 0 and self.Percent_over_606 == 0 and self.Percent_over_607 == 0 and self.Percent_over_608 == 0:
                 p601 = ((self.Percent_over_601/self.Percentage_of_pass1)*40)
                 p602 = ((self.Percent_over_602/self.Percentage_of_pass2)*40) 
                 p603 = ((self.Percent_over_603/self.Percentage_of_pass3)*40)
                 self.b7_Percentage_of_Students_scoring_gt_60_score = (p601 + p602 + p603) / 3
+            elif self.Percent_over_605 == 0 and self.Percent_over_606 == 0 and self.Percent_over_607 == 0 and self.Percent_over_608 == 0:
+                p601 = ((self.Percent_over_601/self.Percentage_of_pass1)*40)
+                p602 = ((self.Percent_over_602/self.Percentage_of_pass2)*40) 
+                p603 = ((self.Percent_over_603/self.Percentage_of_pass3)*40) 
+                p604 = ((self.Percent_over_604/self.Percentage_of_pass4)*40)
+                self.b7_Percentage_of_Students_scoring_gt_60_score = (p601 + p602 + p603 + p604) / 4 
+            elif self.Percent_over_606 == 0 and self.Percent_over_607 == 0 and self.Percent_over_608 == 0:
+                p601 = ((self.Percent_over_601/self.Percentage_of_pass1)*40)
+                p602 = ((self.Percent_over_602/self.Percentage_of_pass2)*40) 
+                p603 = ((self.Percent_over_603/self.Percentage_of_pass3)*40) 
+                p604 = ((self.Percent_over_604/self.Percentage_of_pass4)*40)
+                p605 = ((self.Percent_over_605/self.Percentage_of_pass5)*40)
+                self.b7_Percentage_of_Students_scoring_gt_60_score = (p601 + p602 + p603 + p604 + p605) / 5
+            elif self.Percent_over_607 == 0 and self.Percent_over_608 == 0:
+                p601 = ((self.Percent_over_601/self.Percentage_of_pass1)*40)
+                p602 = ((self.Percent_over_602/self.Percentage_of_pass2)*40) 
+                p603 = ((self.Percent_over_603/self.Percentage_of_pass3)*40) 
+                p604 = ((self.Percent_over_604/self.Percentage_of_pass4)*40)
+                p605 = ((self.Percent_over_605/self.Percentage_of_pass5)*40)
+                p606 = ((self.Percent_over_606/self.Percentage_of_pass6)*40)
+                self.b7_Percentage_of_Students_scoring_gt_60_score = (p601 + p602 + p603 + p604 + p605  + p606) / 6
+            elif self.Percent_over_607 == 0:
+                p601 = ((self.Percent_over_601/self.Percentage_of_pass1)*40)
+                p602 = ((self.Percent_over_602/self.Percentage_of_pass2)*40) 
+                p603 = ((self.Percent_over_603/self.Percentage_of_pass3)*40) 
+                p604 = ((self.Percent_over_604/self.Percentage_of_pass4)*40)
+                p605 = ((self.Percent_over_605/self.Percentage_of_pass5)*40)
+                p606 = ((self.Percent_over_606/self.Percentage_of_pass6)*40)
+                p607 = ((self.Percent_over_607/self.Percentage_of_pass7)*40)
+                self.b7_Percentage_of_Students_scoring_gt_60_score = (p601 + p602 + p603 + p604 + p605  + p606 + p607) / 7
             else:
                 p601 = ((self.Percent_over_601/self.Percentage_of_pass1)*40)
                 p602 = ((self.Percent_over_602/self.Percentage_of_pass2)*40) 
                 p603 = ((self.Percent_over_603/self.Percentage_of_pass3)*40) 
                 p604 = ((self.Percent_over_604/self.Percentage_of_pass4)*40)
-                self.b7_Percentage_of_Students_scoring_gt_60_score = (p601 + p602 + p603 + p604) / 4
-            return self.b7_Percentage_of_Students_scoring_gt_60_score  
+                p605 = ((self.Percent_over_605/self.Percentage_of_pass5)*40)
+                p606 = ((self.Percent_over_606/self.Percentage_of_pass6)*40)
+                p607 = ((self.Percent_over_607/self.Percentage_of_pass7)*40)
+                p608 = ((self.Percent_over_608/self.Percentage_of_pass8)*40)
+                self.b7_Percentage_of_Students_scoring_gt_60_score = (p601 + p602 + p603 + p604 + p605  + p606 + p607 + p608) / 8
+            return self.b7_Percentage_of_Students_scoring_gt_60_score 
         else:
             return
 

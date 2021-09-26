@@ -31,19 +31,35 @@ def AppraisalForm_create(request):
                                 sub2 = request.POST['sub2']
                                 sub3 = request.POST['sub3']
                                 sub4 = request.POST['sub4']
+                                sub5 = request.POST['sub5']
+                                sub6 = request.POST['sub6']
+                                sub7 = request.POST['sub7']
+                                sub8 = request.POST['sub8']
                                 pfile = request.FILES['pfile']
                                 s1 = request.POST['s1']
                                 s2 = request.POST['s2']
                                 s3 = request.POST['s3']
                                 s4 = request.POST['s4']
+                                s5 = request.POST['s5']
+                                s6 = request.POST['s6']
+                                s7 = request.POST['s7']
+                                s8 = request.POST['s8']
                                 p1 = int(float(request.POST['pass1']))
                                 p2 = int(float(request.POST['pass2']))
                                 p3 = int(float(request.POST['pass3']))
                                 p4 = int(float(request.POST['pass4']))
+                                p5 = int(float(request.POST['pass5']))
+                                p6 = int(float(request.POST['pass6']))
+                                p7 = int(float(request.POST['pass7']))
+                                p8 = int(float(request.POST['pass8']))
                                 p61 = int(float(request.POST['pass61']))
                                 p62 = int(float(request.POST['pass62']))
                                 p63 = int(float(request.POST['pass63']))
                                 p64 = int(float(request.POST['pass64']))
+                                p65 = int(float(request.POST['pass65']))
+                                p66 = int(float(request.POST['pass66']))
+                                p67 = int(float(request.POST['pass67']))
+                                p68 = int(float(request.POST['pass68']))
                                 c7_sf = request.POST['student_feedback']
                                 a9_cw = request.POST['a9']
                                 b9_ict = request.POST['b9']
@@ -63,27 +79,51 @@ def AppraisalForm_create(request):
                                 staffedit.Sub_code2 = sub2
                                 staffedit.Sub_code3 = sub3
                                 staffedit.Sub_code4 = sub4
+                                staffedit.Sub_code5 = sub5
+                                staffedit.Sub_code6 = sub6
+                                staffedit.Sub_code7 = sub7
+                                staffedit.Sub_code8 = sub8
                                 staffedit.percent = pfile
                                 staffedit.No_of_students1 = s1
                                 staffedit.No_of_students2 = s2
                                 staffedit.No_of_students3 = s3
                                 staffedit.No_of_students4 = s4
+                                staffedit.No_of_students5 = s5
+                                staffedit.No_of_students6 = s6
+                                staffedit.No_of_students7 = s7
+                                staffedit.No_of_students8 = s8
                                 staffedit.Percentage_of_pass1 = p1
                                 staffedit.Percentage_of_pass2 = p2
                                 staffedit.Percentage_of_pass3 = p3
                                 staffedit.Percentage_of_pass4 = p4
+                                staffedit.Percentage_of_pass5 = p5
+                                staffedit.Percentage_of_pass6 = p6
+                                staffedit.Percentage_of_pass7 = p7
+                                staffedit.Percentage_of_pass8 = p8
                                 staffedit.Percent_over_601 = p61
                                 staffedit.Percent_over_602 = p62
                                 staffedit.Percent_over_603 = p63
                                 staffedit.Percent_over_604 = p64
+                                staffedit.Percent_over_605 = p65
+                                staffedit.Percent_over_606 = p66
+                                staffedit.Percent_over_607 = p67
+                                staffedit.Percent_over_608 = p68
                                 staffedit.Percentage_of_pass1_hod = p1
                                 staffedit.Percentage_of_pass2_hod = p2
                                 staffedit.Percentage_of_pass3_hod = p3
                                 staffedit.Percentage_of_pass4_hod = p4
+                                staffedit.Percentage_of_pass5_hod = p5
+                                staffedit.Percentage_of_pass6_hod = p6
+                                staffedit.Percentage_of_pass7_hod = p7
+                                staffedit.Percentage_of_pass8_hod = p8
                                 staffedit.Percent_over_601_hod = p61
                                 staffedit.Percent_over_602_hod = p62
                                 staffedit.Percent_over_603_hod = p63
                                 staffedit.Percent_over_604_hod = p64
+                                staffedit.Percent_over_605_hod = p65
+                                staffedit.Percent_over_606_hod = p66
+                                staffedit.Percent_over_607_hod = p67
+                                staffedit.Percent_over_608_hod = p68
                                 staffedit.c7_Student_Feedback = c7_sf
                                 staffedit.a9_No_of_conferences_or_workshops_or_Seminars_or_training_programs_or_etc_FDPs_attended_score = a9_cw
                                 staffedit.b9_Use_of_ICT_in_TLP_score = b9_ict
@@ -107,19 +147,39 @@ def AppraisalForm_create(request):
                                 sub2 = request.POST['sub2']
                                 sub3 = request.POST['sub3']
                                 sub4 = request.POST['sub4']
+                                sub5 = request.POST['sub5']
+                                sub6 = request.POST['sub6']
+                                sub7 = request.POST['sub7']
+                                sub8 = request.POST['sub8']
+                                s5 = request.POST['s5']
+                                s6 = request.POST['s6']
+                                s7 = request.POST['s7']
+                                s8 = request.POST['s8']
                                 pfile = request.FILES['pfile']
                                 s1 = request.POST['s1']
                                 s2 = request.POST['s2']
                                 s3 = request.POST['s3']
                                 s4 = request.POST['s4']
+                                s5 = request.POST['s5']
+                                s6 = request.POST['s6']
+                                s7 = request.POST['s7']
+                                s8 = request.POST['s8']
                                 p1 = int(float(request.POST['pass1']))
                                 p2 = int(float(request.POST['pass2']))
                                 p3 = int(float(request.POST['pass3']))
                                 p4 = int(float(request.POST['pass4']))
+                                p5 = int(float(request.POST['pass5']))
+                                p6 = int(float(request.POST['pass6']))
+                                p7 = int(float(request.POST['pass7']))
+                                p8 = int(float(request.POST['pass8']))
                                 p61 = int(float(request.POST['pass61']))
                                 p62 = int(float(request.POST['pass62']))
                                 p63 = int(float(request.POST['pass63']))
                                 p64 = int(float(request.POST['pass64']))
+                                p65 = int(float(request.POST['pass65']))
+                                p66 = int(float(request.POST['pass66']))
+                                p67 = int(float(request.POST['pass67']))
+                                p68 = int(float(request.POST['pass68']))
                                 c7_sf = request.POST['student_feedback']
                                 a9_cw = request.POST['a9']
                                 b9_ict = request.POST['b9']
@@ -136,27 +196,51 @@ def AppraisalForm_create(request):
                                 staffedit.Sub_code2 = sub2
                                 staffedit.Sub_code3 = sub3
                                 staffedit.Sub_code4 = sub4
+                                staffedit.Sub_code5 = sub5
+                                staffedit.Sub_code6 = sub6
+                                staffedit.Sub_code7 = sub7
+                                staffedit.Sub_code8 = sub8
                                 staffedit.percent = pfile
                                 staffedit.No_of_students1 = s1
                                 staffedit.No_of_students2 = s2
                                 staffedit.No_of_students3 = s3
                                 staffedit.No_of_students4 = s4
+                                staffedit.No_of_students5 = s5
+                                staffedit.No_of_students6 = s6
+                                staffedit.No_of_students7 = s7
+                                staffedit.No_of_students8 = s8
                                 staffedit.Percentage_of_pass1 = p1
                                 staffedit.Percentage_of_pass2 = p2
                                 staffedit.Percentage_of_pass3 = p3
                                 staffedit.Percentage_of_pass4 = p4
+                                staffedit.Percentage_of_pass5 = p5
+                                staffedit.Percentage_of_pass6 = p6
+                                staffedit.Percentage_of_pass7 = p7
+                                staffedit.Percentage_of_pass8 = p8
                                 staffedit.Percent_over_601 = p61
                                 staffedit.Percent_over_602 = p62
                                 staffedit.Percent_over_603 = p63
                                 staffedit.Percent_over_604 = p64
+                                staffedit.Percent_over_605 = p65
+                                staffedit.Percent_over_606 = p66
+                                staffedit.Percent_over_607 = p67
+                                staffedit.Percent_over_608 = p68
                                 staffedit.Percentage_of_pass1_hod = p1
                                 staffedit.Percentage_of_pass2_hod = p2
                                 staffedit.Percentage_of_pass3_hod = p3
                                 staffedit.Percentage_of_pass4_hod = p4
+                                staffedit.Percentage_of_pass5_hod = p5
+                                staffedit.Percentage_of_pass6_hod = p6
+                                staffedit.Percentage_of_pass7_hod = p7
+                                staffedit.Percentage_of_pass8_hod = p8
                                 staffedit.Percent_over_601_hod = p61
                                 staffedit.Percent_over_602_hod = p62
                                 staffedit.Percent_over_603_hod = p63
                                 staffedit.Percent_over_604_hod = p64
+                                staffedit.Percent_over_605_hod = p65
+                                staffedit.Percent_over_606_hod = p66
+                                staffedit.Percent_over_607_hod = p67
+                                staffedit.Percent_over_608_hod = p68
                                 staffedit.c7_Student_Feedback = c7_sf
                                 staffedit.a9_No_of_conferences_or_workshops_or_Seminars_or_training_programs_or_etc_FDPs_attended_score = a9_cw
                                 staffedit.b9_Use_of_ICT_in_TLP_score = b9_ict
@@ -183,19 +267,35 @@ def AppraisalForm_create(request):
                                 sub2 = request.POST['sub2']
                                 sub3 = request.POST['sub3']
                                 sub4 = request.POST['sub4']
+                                sub5 = request.POST['sub5']
+                                sub6 = request.POST['sub6']
+                                sub7 = request.POST['sub7']
+                                sub8 = request.POST['sub8']
                                 pfile = request.FILES['pfile']
                                 s1 = request.POST['s1']
                                 s2 = request.POST['s2']
                                 s3 = request.POST['s3']
                                 s4 = request.POST['s4']
+                                s5 = request.POST['s5']
+                                s6 = request.POST['s6']
+                                s7 = request.POST['s7']
+                                s8 = request.POST['s8']
                                 p1 = int(float(request.POST['pass1']))
                                 p2 = int(float(request.POST['pass2']))
                                 p3 = int(float(request.POST['pass3']))
                                 p4 = int(float(request.POST['pass4']))
+                                p5 = int(float(request.POST['pass5']))
+                                p6 = int(float(request.POST['pass6']))
+                                p7 = int(float(request.POST['pass7']))
+                                p8 = int(float(request.POST['pass8']))
                                 p61 = int(float(request.POST['pass61']))
                                 p62 = int(float(request.POST['pass62']))
                                 p63 = int(float(request.POST['pass63']))
                                 p64 = int(float(request.POST['pass64']))
+                                p65 = int(float(request.POST['pass65']))
+                                p66 = int(float(request.POST['pass66']))
+                                p67 = int(float(request.POST['pass67']))
+                                p68 = int(float(request.POST['pass68']))
                                 c7_sf = request.POST['student_feedback']
                                 a9_cw = request.POST['a9']
                                 b9_ict = request.POST['b9']
@@ -211,12 +311,12 @@ def AppraisalForm_create(request):
                                 c8bfile = request.FILES['c8bfile']
                                 d8bfile = request.FILES['d8bfile']
 
-                                apf = AppraisalForm(user=Staff_ID,department=check.Department,designation=check.Present_Designation,academic_year=ay,name=check.Name,submitted_Faculty=True,No_of_students1=s1, No_of_students2=s2, No_of_students3=s3, No_of_students4=s4,
-                                            Sub_code1=sub1, Sub_code2=sub2, Sub_code3=sub3, Sub_code4=sub4,
-                                            Percentage_of_pass1=p1, Percentage_of_pass2=p2, Percentage_of_pass3=p3, Percentage_of_pass4=p4,
-                                            Percent_over_601=p61, Percent_over_602=p62, Percent_over_603=p63, Percent_over_604=p64,
-                                            Percentage_of_pass1_hod=p1, Percentage_of_pass2_hod=p2, Percentage_of_pass3_hod=p3, Percentage_of_pass4_hod=p4,
-                                            Percent_over_601_hod=p61, Percent_over_602_hod=p62, Percent_over_603_hod=p63, Percent_over_604_hod=p64,
+                                apf = AppraisalForm(user=Staff_ID,department=check.Department,designation=check.Present_Designation,academic_year=ay,name=check.Name,submitted_Faculty=True,No_of_students1=s1, No_of_students2=s2, No_of_students3=s3, No_of_students4=s4,No_of_students5=s5, No_of_students6=s6, No_of_students7=s7, No_of_students8=s8,
+                                            Sub_code1=sub1, Sub_code2=sub2, Sub_code3=sub3, Sub_code4=sub4,Sub_code5=sub5, Sub_code6=sub6, Sub_code7=sub7, Sub_code8=sub8,
+                                            Percentage_of_pass1=p1, Percentage_of_pass2=p2, Percentage_of_pass3=p3, Percentage_of_pass4=p4,Percentage_of_pass5=p5, Percentage_of_pass6=p6, Percentage_of_pass7=p7, Percentage_of_pass8=p8,
+                                            Percent_over_601=p61, Percent_over_602=p62, Percent_over_603=p63, Percent_over_604=p64,Percent_over_605=p65, Percent_over_606=p66, Percent_over_607=p67, Percent_over_608=p68,
+                                            Percentage_of_pass1_hod=p1, Percentage_of_pass2_hod=p2, Percentage_of_pass3_hod=p3, Percentage_of_pass4_hod=p4,Percentage_of_pass5_hod=p5, Percentage_of_pass6_hod=p6, Percentage_of_pass7_hod=p7, Percentage_of_pass8_hod=p8,
+                                            Percent_over_601_hod=p61, Percent_over_602_hod=p62, Percent_over_603_hod=p63, Percent_over_604_hod=p64,Percent_over_605_hod=p65, Percent_over_606_hod=p66, Percent_over_607_hod=p67, Percent_over_608_hod=p68,
                                             c7_Student_Feedback = c7_sf, a9_No_of_conferences_or_workshops_or_Seminars_or_training_programs_or_etc_FDPs_attended_score = a9_cw,
                                             b9_Use_of_ICT_in_TLP_score = b9_ict, c9_No_of_conferences_or_workshops_or_Seminars_or_training_or_programs_or_etc_or_FDPs_conducted_or_coordinated_score = c9_cw, a8B_No_of_Topper_in_1st_year_of_study_under_your_mentorship_score=a8b,
                                             b8B_No_of_students_achieved_vertical_progression_to_2nd_Year_under_your_mentorship_score=b8b, c8B_No_of_FCD_in_1st_year_of_study_under_your_mentorship_score=c8b,
@@ -229,19 +329,35 @@ def AppraisalForm_create(request):
                                 sub2 = request.POST['sub2']
                                 sub3 = request.POST['sub3']
                                 sub4 = request.POST['sub4']
+                                sub5 = request.POST['sub5']
+                                sub6 = request.POST['sub6']
+                                sub7 = request.POST['sub7']
+                                sub8 = request.POST['sub8']
                                 pfile = request.FILES['pfile']
                                 s1 = request.POST['s1']
                                 s2 = request.POST['s2']
                                 s3 = request.POST['s3']
                                 s4 = request.POST['s4']
+                                s5 = request.POST['s5']
+                                s6 = request.POST['s6']
+                                s7 = request.POST['s7']
+                                s8 = request.POST['s8']
                                 p1 = int(float(request.POST['pass1']))
                                 p2 = int(float(request.POST['pass2']))
                                 p3 = int(float(request.POST['pass3']))
                                 p4 = int(float(request.POST['pass4']))
+                                p5 = int(float(request.POST['pass5']))
+                                p6 = int(float(request.POST['pass6']))
+                                p7 = int(float(request.POST['pass7']))
+                                p8 = int(float(request.POST['pass8']))
                                 p61 = int(float(request.POST['pass61']))
                                 p62 = int(float(request.POST['pass62']))
                                 p63 = int(float(request.POST['pass63']))
                                 p64 = int(float(request.POST['pass64']))
+                                p65 = int(float(request.POST['pass65']))
+                                p66 = int(float(request.POST['pass66']))
+                                p67 = int(float(request.POST['pass67']))
+                                p68 = int(float(request.POST['pass68']))
                                 c7_sf = request.POST['student_feedback']
                                 a9_cw = request.POST['a9']
                                 b9_ict = request.POST['b9']
@@ -254,12 +370,12 @@ def AppraisalForm_create(request):
                                 b8file = request.FILES['b8file']
                                 c8file = request.FILES['c8file']
 
-                                apf = AppraisalForm(user=Staff_ID,department=check.Department,designation=check.Present_Designation,academic_year=ay,name=check.Name,submitted_Faculty=True,No_of_students1=s1, No_of_students2=s2, No_of_students3=s3, No_of_students4=s4,
-                                            Sub_code1=sub1, Sub_code2=sub2, Sub_code3=sub3, Sub_code4=sub4,
-                                            Percentage_of_pass1=p1, Percentage_of_pass2=p2, Percentage_of_pass3=p3, Percentage_of_pass4=p4,
-                                            Percent_over_601=p61, Percent_over_602=p62, Percent_over_603=p63, Percent_over_604=p64,
-                                            Percentage_of_pass1_hod=p1, Percentage_of_pass2_hod=p2, Percentage_of_pass3_hod=p3, Percentage_of_pass4_hod=p4,
-                                            Percent_over_601_hod=p61, Percent_over_602_hod=p62, Percent_over_603_hod=p63, Percent_over_604_hod=p64,
+                                apf = AppraisalForm(user=Staff_ID,department=check.Department,designation=check.Present_Designation,academic_year=ay,name=check.Name,submitted_Faculty=True,No_of_students1=s1, No_of_students2=s2, No_of_students3=s3, No_of_students4=s4,No_of_students5=s5, No_of_students6=s6, No_of_students7=s7, No_of_students8=s8,
+                                            Sub_code1=sub1, Sub_code2=sub2, Sub_code3=sub3, Sub_code4=sub4,Sub_code5=sub5, Sub_code6=sub6, Sub_code7=sub7, Sub_code8=sub8,
+                                            Percentage_of_pass1=p1, Percentage_of_pass2=p2, Percentage_of_pass3=p3, Percentage_of_pass4=p4,Percentage_of_pass5=p5, Percentage_of_pass6=p6, Percentage_of_pass7=p7, Percentage_of_pass8=p8,
+                                            Percent_over_601=p61, Percent_over_602=p62, Percent_over_603=p63, Percent_over_604=p64,Percent_over_605=p65, Percent_over_606=p66, Percent_over_607=p67, Percent_over_608=p68,
+                                            Percentage_of_pass1_hod=p1, Percentage_of_pass2_hod=p2, Percentage_of_pass3_hod=p3, Percentage_of_pass4_hod=p4,Percentage_of_pass5_hod=p5, Percentage_of_pass6_hod=p6, Percentage_of_pass7_hod=p7, Percentage_of_pass8_hod=p8,
+                                            Percent_over_601_hod=p61, Percent_over_602_hod=p62, Percent_over_603_hod=p63, Percent_over_604_hod=p64,Percent_over_605_hod=p65, Percent_over_606_hod=p66, Percent_over_607_hod=p67, Percent_over_608_hod=p68,
                                             c7_Student_Feedback = c7_sf, a9_No_of_conferences_or_workshops_or_Seminars_or_training_programs_or_etc_FDPs_attended_score = a9_cw,
                                             b9_Use_of_ICT_in_TLP_score = b9_ict, c9_No_of_conferences_or_workshops_or_Seminars_or_training_or_programs_or_etc_or_FDPs_conducted_or_coordinated_score = c9_cw,a8_No_of_projects_guided_score=a8,
                                             b8_No_of_Best_Projects_Awarded_OR_Student_Project_Exhibited_in_competitions_or_Symposiums_OR_Funded_by_external_agency_OR_Student_Project_Paper_Publication_s_score=b8,
@@ -522,19 +638,35 @@ def AppraisalForm_HODcreate(request):
                                 sub2 = request.POST['sub2']
                                 sub3 = request.POST['sub3']
                                 sub4 = request.POST['sub4']
+                                sub5 = request.POST['sub5']
+                                sub6 = request.POST['sub6']
+                                sub7 = request.POST['sub7']
+                                sub8 = request.POST['sub8']
                                 pfile = request.FILES['pfile']
                                 s1 = request.POST['s1']
                                 s2 = request.POST['s2']
                                 s3 = request.POST['s3']
                                 s4 = request.POST['s4']
+                                s5 = request.POST['s5']
+                                s6 = request.POST['s6']
+                                s7 = request.POST['s7']
+                                s8 = request.POST['s8']
                                 p1 = int(float(request.POST['pass1']))
                                 p2 = int(float(request.POST['pass2']))
                                 p3 = int(float(request.POST['pass3']))
                                 p4 = int(float(request.POST['pass4']))
+                                p5 = int(float(request.POST['pass5']))
+                                p6 = int(float(request.POST['pass6']))
+                                p7 = int(float(request.POST['pass7']))
+                                p8 = int(float(request.POST['pass8']))
                                 p61 = int(float(request.POST['pass61']))
                                 p62 = int(float(request.POST['pass62']))
                                 p63 = int(float(request.POST['pass63']))
                                 p64 = int(float(request.POST['pass64']))
+                                p65 = int(float(request.POST['pass65']))
+                                p66 = int(float(request.POST['pass66']))
+                                p67 = int(float(request.POST['pass67']))
+                                p68 = int(float(request.POST['pass68']))
                                 c7_sf = request.POST['student_feedback']
                                 a9_cw = request.POST['a9']
                                 b9_ict = request.POST['b9']
@@ -554,19 +686,35 @@ def AppraisalForm_HODcreate(request):
                                 staffedit.Sub_code2 = sub2
                                 staffedit.Sub_code3 = sub3
                                 staffedit.Sub_code4 = sub4
+                                staffedit.Sub_code5 = sub5
+                                staffedit.Sub_code6 = sub6
+                                staffedit.Sub_code7 = sub7
+                                staffedit.Sub_code8 = sub8
                                 staffedit.percent = pfile
                                 staffedit.No_of_students1 = s1
                                 staffedit.No_of_students2 = s2
                                 staffedit.No_of_students3 = s3
                                 staffedit.No_of_students4 = s4
+                                staffedit.No_of_students5 = s5
+                                staffedit.No_of_students6 = s6
+                                staffedit.No_of_students7 = s7
+                                staffedit.No_of_students8 = s8
                                 staffedit.Percentage_of_pass1 = p1
                                 staffedit.Percentage_of_pass2 = p2
                                 staffedit.Percentage_of_pass3 = p3
                                 staffedit.Percentage_of_pass4 = p4
+                                staffedit.Percentage_of_pass5 = p5
+                                staffedit.Percentage_of_pass6 = p6
+                                staffedit.Percentage_of_pass7 = p7
+                                staffedit.Percentage_of_pass8 = p8
                                 staffedit.Percent_over_601 = p61
                                 staffedit.Percent_over_602 = p62
                                 staffedit.Percent_over_603 = p63
                                 staffedit.Percent_over_604 = p64
+                                staffedit.Percent_over_605 = p65
+                                staffedit.Percent_over_606 = p66
+                                staffedit.Percent_over_607 = p67
+                                staffedit.Percent_over_608 = p68
                                 staffedit.c7_Student_Feedback = c7_sf
                                 staffedit.a9_No_of_conferences_or_workshops_or_Seminars_or_training_programs_or_etc_FDPs_attended_score = a9_cw
                                 staffedit.b9_Use_of_ICT_in_TLP_score = b9_ict
@@ -590,19 +738,35 @@ def AppraisalForm_HODcreate(request):
                                 sub2 = request.POST['sub2']
                                 sub3 = request.POST['sub3']
                                 sub4 = request.POST['sub4']
+                                sub5 = request.POST['sub5']
+                                sub6 = request.POST['sub6']
+                                sub7 = request.POST['sub7']
+                                sub8 = request.POST['sub8']
                                 pfile = request.FILES['pfile']
                                 s1 = request.POST['s1']
                                 s2 = request.POST['s2']
                                 s3 = request.POST['s3']
                                 s4 = request.POST['s4']
+                                s5 = request.POST['s5']
+                                s6 = request.POST['s6']
+                                s7 = request.POST['s7']
+                                s8 = request.POST['s8']
                                 p1 = int(float(request.POST['pass1']))
                                 p2 = int(float(request.POST['pass2']))
                                 p3 = int(float(request.POST['pass3']))
                                 p4 = int(float(request.POST['pass4']))
+                                p5 = int(float(request.POST['pass5']))
+                                p6 = int(float(request.POST['pass6']))
+                                p7 = int(float(request.POST['pass7']))
+                                p8 = int(float(request.POST['pass8']))
                                 p61 = int(float(request.POST['pass61']))
                                 p62 = int(float(request.POST['pass62']))
                                 p63 = int(float(request.POST['pass63']))
                                 p64 = int(float(request.POST['pass64']))
+                                p65 = int(float(request.POST['pass65']))
+                                p66 = int(float(request.POST['pass66']))
+                                p67 = int(float(request.POST['pass67']))
+                                p68 = int(float(request.POST['pass68']))
                                 c7_sf = request.POST['student_feedback']
                                 a9_cw = request.POST['a9']
                                 b9_ict = request.POST['b9']
@@ -619,19 +783,35 @@ def AppraisalForm_HODcreate(request):
                                 staffedit.Sub_code2 = sub2
                                 staffedit.Sub_code3 = sub3
                                 staffedit.Sub_code4 = sub4
+                                staffedit.Sub_code5 = sub5
+                                staffedit.Sub_code6 = sub6
+                                staffedit.Sub_code7 = sub7
+                                staffedit.Sub_code8 = sub8
                                 staffedit.percent = pfile
                                 staffedit.No_of_students1 = s1
                                 staffedit.No_of_students2 = s2
                                 staffedit.No_of_students3 = s3
                                 staffedit.No_of_students4 = s4
+                                staffedit.No_of_students5 = s5
+                                staffedit.No_of_students6 = s6
+                                staffedit.No_of_students7 = s7
+                                staffedit.No_of_students8 = s8
                                 staffedit.Percentage_of_pass1 = p1
                                 staffedit.Percentage_of_pass2 = p2
                                 staffedit.Percentage_of_pass3 = p3
                                 staffedit.Percentage_of_pass4 = p4
+                                staffedit.Percentage_of_pass5 = p5
+                                staffedit.Percentage_of_pass6 = p6
+                                staffedit.Percentage_of_pass7 = p7
+                                staffedit.Percentage_of_pass8 = p8
                                 staffedit.Percent_over_601 = p61
                                 staffedit.Percent_over_602 = p62
                                 staffedit.Percent_over_603 = p63
                                 staffedit.Percent_over_604 = p64
+                                staffedit.Percent_over_605 = p65
+                                staffedit.Percent_over_606 = p66
+                                staffedit.Percent_over_607 = p67
+                                staffedit.Percent_over_608 = p68
                                 staffedit.c7_Student_Feedback = c7_sf
                                 staffedit.a9_No_of_conferences_or_workshops_or_Seminars_or_training_programs_or_etc_FDPs_attended_score = a9_cw
                                 staffedit.b9_Use_of_ICT_in_TLP_score = b9_ict
@@ -658,19 +838,35 @@ def AppraisalForm_HODcreate(request):
                                 sub2 = request.POST['sub2']
                                 sub3 = request.POST['sub3']
                                 sub4 = request.POST['sub4']
+                                sub5 = request.POST['sub5']
+                                sub6 = request.POST['sub6']
+                                sub7 = request.POST['sub7']
+                                sub8 = request.POST['sub8']
                                 pfile = request.FILES['pfile']
                                 s1 = request.POST['s1']
                                 s2 = request.POST['s2']
                                 s3 = request.POST['s3']
                                 s4 = request.POST['s4']
+                                s5 = request.POST['s5']
+                                s6 = request.POST['s6']
+                                s7 = request.POST['s7']
+                                s8 = request.POST['s8']
                                 p1 = int(float(request.POST['pass1']))
                                 p2 = int(float(request.POST['pass2']))
                                 p3 = int(float(request.POST['pass3']))
                                 p4 = int(float(request.POST['pass4']))
+                                p5 = int(float(request.POST['pass5']))
+                                p6 = int(float(request.POST['pass6']))
+                                p7 = int(float(request.POST['pass7']))
+                                p8 = int(float(request.POST['pass8']))
                                 p61 = int(float(request.POST['pass61']))
                                 p62 = int(float(request.POST['pass62']))
                                 p63 = int(float(request.POST['pass63']))
                                 p64 = int(float(request.POST['pass64']))
+                                p65 = int(float(request.POST['pass65']))
+                                p66 = int(float(request.POST['pass66']))
+                                p67 = int(float(request.POST['pass67']))
+                                p68 = int(float(request.POST['pass68']))
                                 c7_sf = request.POST['student_feedback']
                                 a9_cw = request.POST['a9']
                                 b9_ict = request.POST['b9']
@@ -686,12 +882,12 @@ def AppraisalForm_HODcreate(request):
                                 c8bfile = request.FILES['c8bfile']
                                 d8bfile = request.FILES['d8bfile']
 
-                                apf = AppraisalForm(user=Staff_ID,department=check.Department,designation=check.Present_Designation,academic_year=ay,name=check.Name,submitted_Faculty=True,submitted_HOD=True,whether_HOD=True,No_of_students1=s1, No_of_students2=s2, No_of_students3=s3, No_of_students4=s4,
-                                            Sub_code1=sub1, Sub_code2=sub2, Sub_code3=sub3, Sub_code4=sub4,
-                                            Percentage_of_pass1=p1, Percentage_of_pass2=p2, Percentage_of_pass3=p3, Percentage_of_pass4=p4,
-                                            Percent_over_601=p61, Percent_over_602=p62, Percent_over_603=p63, Percent_over_604=p64,
-                                            Percentage_of_pass1_hod=p1, Percentage_of_pass2_hod=p2, Percentage_of_pass3_hod=p3, Percentage_of_pass4_hod=p4,
-                                            Percent_over_601_hod=p61, Percent_over_602_hod=p62, Percent_over_603_hod=p63, Percent_over_604_hod=p64,
+                                apf = AppraisalForm(user=Staff_ID,department=check.Department,designation=check.Present_Designation,academic_year=ay,name=check.Name,submitted_Faculty=True,submitted_HOD=True,whether_HOD=True,No_of_students1=s1, No_of_students2=s2, No_of_students3=s3, No_of_students4=s4,No_of_students5=s5, No_of_students6=s6, No_of_students7=s7, No_of_students8=s8,
+                                            Sub_code1=sub1, Sub_code2=sub2, Sub_code3=sub3, Sub_code4=sub4,Sub_code5=sub5, Sub_code6=sub6, Sub_code7=sub7, Sub_code8=sub8,
+                                            Percentage_of_pass1=p1, Percentage_of_pass2=p2, Percentage_of_pass3=p3, Percentage_of_pass4=p4,Percentage_of_pass5=p5, Percentage_of_pass6=p6, Percentage_of_pass7=p7, Percentage_of_pass8=p8,
+                                            Percent_over_601=p61, Percent_over_602=p62, Percent_over_603=p63, Percent_over_604=p64,Percent_over_605=p65, Percent_over_606=p66, Percent_over_607=p67, Percent_over_608=p68,
+                                            Percentage_of_pass1_hod=p1, Percentage_of_pass2_hod=p2, Percentage_of_pass3_hod=p3, Percentage_of_pass4_hod=p4,Percentage_of_pass5_hod=p5, Percentage_of_pass6_hod=p6, Percentage_of_pass7_hod=p7, Percentage_of_pass8_hod=p8,
+                                            Percent_over_601_hod=p61, Percent_over_602_hod=p62, Percent_over_603_hod=p63, Percent_over_604_hod=p64,Percent_over_605_hod=p65, Percent_over_606_hod=p66, Percent_over_607_hod=p67, Percent_over_608_hod=p68,
                                             c7_Student_Feedback = c7_sf, a9_No_of_conferences_or_workshops_or_Seminars_or_training_programs_or_etc_FDPs_attended_score = a9_cw,
                                             b9_Use_of_ICT_in_TLP_score = b9_ict, c9_No_of_conferences_or_workshops_or_Seminars_or_training_or_programs_or_etc_or_FDPs_conducted_or_coordinated_score = c9_cw, a8B_No_of_Topper_in_1st_year_of_study_under_your_mentorship_score=a8b,
                                             b8B_No_of_students_achieved_vertical_progression_to_2nd_Year_under_your_mentorship_score=b8b, c8B_No_of_FCD_in_1st_year_of_study_under_your_mentorship_score=c8b,
@@ -704,19 +900,35 @@ def AppraisalForm_HODcreate(request):
                                 sub2 = request.POST['sub2']
                                 sub3 = request.POST['sub3']
                                 sub4 = request.POST['sub4']
+                                sub5 = request.POST['sub5']
+                                sub6 = request.POST['sub6']
+                                sub7 = request.POST['sub7']
+                                sub8 = request.POST['sub8']
                                 pfile = request.FILES['pfile']
                                 s1 = request.POST['s1']
                                 s2 = request.POST['s2']
                                 s3 = request.POST['s3']
                                 s4 = request.POST['s4']
+                                s5 = request.POST['s5']
+                                s6 = request.POST['s6']
+                                s7 = request.POST['s7']
+                                s8 = request.POST['s8']
                                 p1 = int(float(request.POST['pass1']))
                                 p2 = int(float(request.POST['pass2']))
                                 p3 = int(float(request.POST['pass3']))
                                 p4 = int(float(request.POST['pass4']))
+                                p5 = int(float(request.POST['pass5']))
+                                p6 = int(float(request.POST['pass6']))
+                                p7 = int(float(request.POST['pass7']))
+                                p8 = int(float(request.POST['pass8']))
                                 p61 = int(float(request.POST['pass61']))
                                 p62 = int(float(request.POST['pass62']))
                                 p63 = int(float(request.POST['pass63']))
                                 p64 = int(float(request.POST['pass64']))
+                                p65 = int(float(request.POST['pass65']))
+                                p66 = int(float(request.POST['pass66']))
+                                p67 = int(float(request.POST['pass67']))
+                                p68 = int(float(request.POST['pass68']))
                                 c7_sf = request.POST['student_feedback']
                                 a9_cw = request.POST['a9']
                                 b9_ict = request.POST['b9']
@@ -729,12 +941,12 @@ def AppraisalForm_HODcreate(request):
                                 b8file = request.FILES['b8file']
                                 c8file = request.FILES['c8file']
 
-                                apf = AppraisalForm(user=Staff_ID,department=check.Department,designation=check.Present_Designation,name=check.Name,academic_year=ay,submitted_Faculty=True,submitted_HOD=True,whether_HOD=True,No_of_students1=s1, No_of_students2=s2, No_of_students3=s3, No_of_students4=s4,
-                                            Sub_code1=sub1, Sub_code2=sub2, Sub_code3=sub3, Sub_code4=sub4,
-                                            Percentage_of_pass1=p1, Percentage_of_pass2=p2, Percentage_of_pass3=p3, Percentage_of_pass4=p4,
-                                            Percent_over_601=p61, Percent_over_602=p62, Percent_over_603=p63, Percent_over_604=p64,
-                                            Percentage_of_pass1_hod=p1, Percentage_of_pass2_hod=p2, Percentage_of_pass3_hod=p3, Percentage_of_pass4_hod=p4,
-                                            Percent_over_601_hod=p61, Percent_over_602_hod=p62, Percent_over_603_hod=p63, Percent_over_604_hod=p64,
+                                apf = AppraisalForm(user=Staff_ID,department=check.Department,designation=check.Present_Designation,name=check.Name,academic_year=ay,submitted_Faculty=True,submitted_HOD=True,whether_HOD=True,No_of_students1=s1, No_of_students2=s2, No_of_students3=s3, No_of_students4=s4,No_of_students5=s5, No_of_students6=s6, No_of_students7=s7, No_of_students8=s8,
+                                            Sub_code1=sub1, Sub_code2=sub2, Sub_code3=sub3, Sub_code4=sub4,Sub_code5=sub5, Sub_code6=sub6, Sub_code7=sub7, Sub_code8=sub8,
+                                            Percentage_of_pass1=p1, Percentage_of_pass2=p2, Percentage_of_pass3=p3, Percentage_of_pass4=p4,Percentage_of_pass5=p5, Percentage_of_pass6=p6, Percentage_of_pass7=p7, Percentage_of_pass8=p8,
+                                            Percent_over_601=p61, Percent_over_602=p62, Percent_over_603=p63, Percent_over_604=p64,Percent_over_605=p65, Percent_over_606=p66, Percent_over_607=p67, Percent_over_608=p68,
+                                            Percentage_of_pass1_hod=p1, Percentage_of_pass2_hod=p2, Percentage_of_pass3_hod=p3, Percentage_of_pass4_hod=p4,Percentage_of_pass5_hod=p5, Percentage_of_pass6_hod=p6, Percentage_of_pass7_hod=p7, Percentage_of_pass8_hod=p8,
+                                            Percent_over_601_hod=p61, Percent_over_602_hod=p62, Percent_over_603_hod=p63, Percent_over_604_hod=p64,Percent_over_605_hod=p65, Percent_over_606_hod=p66, Percent_over_607_hod=p67, Percent_over_608_hod=p68,
                                             c7_Student_Feedback = c7_sf, a9_No_of_conferences_or_workshops_or_Seminars_or_training_programs_or_etc_FDPs_attended_score = a9_cw,
                                             b9_Use_of_ICT_in_TLP_score = b9_ict, c9_No_of_conferences_or_workshops_or_Seminars_or_training_or_programs_or_etc_or_FDPs_conducted_or_coordinated_score = c9_cw,a8_No_of_projects_guided_score=a8,
                                             b8_No_of_Best_Projects_Awarded_OR_Student_Project_Exhibited_in_competitions_or_Symposiums_OR_Funded_by_external_agency_OR_Student_Project_Paper_Publication_s_score=b8,
@@ -986,10 +1198,18 @@ def AppraisalForm_HODscores(request, user):
                         p2 = int(float(request.POST['pass2']))
                         p3 = int(float(request.POST['pass3']))
                         p4 = int(float(request.POST['pass4']))
+                        p5 = int(float(request.POST['pass5']))
+                        p6 = int(float(request.POST['pass6']))
+                        p7 = int(float(request.POST['pass7']))
+                        p8 = int(float(request.POST['pass8']))
                         p61 = int(float(request.POST['pass61']))
                         p62 = int(float(request.POST['pass62']))
                         p63 = int(float(request.POST['pass63']))
                         p64 = int(float(request.POST['pass64']))
+                        p65 = int(float(request.POST['pass65']))
+                        p66 = int(float(request.POST['pass66']))
+                        p67 = int(float(request.POST['pass67']))
+                        p68 = int(float(request.POST['pass68']))
                         c7HOD = request.POST['c7HOD']
                         a9HOD = request.POST['a9HOD']
                         b9HOD = request.POST['b9HOD']
@@ -1003,10 +1223,18 @@ def AppraisalForm_HODscores(request, user):
                         form.Percentage_of_pass2_hod = p2
                         form.Percentage_of_pass3_hod = p3
                         form.Percentage_of_pass4_hod = p4
+                        form.Percentage_of_pass5_hod = p5
+                        form.Percentage_of_pass6_hod = p6
+                        form.Percentage_of_pass7_hod = p7
+                        form.Percentage_of_pass8_hod = p8
                         form.Percent_over_601_hod = p61
                         form.Percent_over_602_hod = p62
                         form.Percent_over_603_hod = p63
                         form.Percent_over_604_hod = p64
+                        form.Percent_over_605_hod = p65
+                        form.Percent_over_606_hod = p66
+                        form.Percent_over_607_hod = p67
+                        form.Percent_over_608_hod = p68
                         form.c7HOD_Student_Feedback = c7HOD
                         form.c7P_Student_Feedback = c7HOD
                         form.a9HOD_score = a9HOD
@@ -1033,10 +1261,18 @@ def AppraisalForm_HODscores(request, user):
                         p2 = int(float(request.POST['pass2']))
                         p3 = int(float(request.POST['pass3']))
                         p4 = int(float(request.POST['pass4']))
+                        p5 = int(float(request.POST['pass5']))
+                        p6 = int(float(request.POST['pass6']))
+                        p7 = int(float(request.POST['pass7']))
+                        p8 = int(float(request.POST['pass8']))
                         p61 = int(float(request.POST['pass61']))
                         p62 = int(float(request.POST['pass62']))
                         p63 = int(float(request.POST['pass63']))
                         p64 = int(float(request.POST['pass64']))
+                        p65 = int(float(request.POST['pass65']))
+                        p66 = int(float(request.POST['pass66']))
+                        p67 = int(float(request.POST['pass67']))
+                        p68 = int(float(request.POST['pass68']))
                         c7HOD = request.POST['c7HOD']
                         a9HOD = request.POST['a9HOD']
                         b9HOD = request.POST['b9HOD']
@@ -1049,10 +1285,18 @@ def AppraisalForm_HODscores(request, user):
                         form.Percentage_of_pass2_hod = p2
                         form.Percentage_of_pass3_hod = p3
                         form.Percentage_of_pass4_hod = p4
+                        form.Percentage_of_pass5_hod = p5
+                        form.Percentage_of_pass6_hod = p6
+                        form.Percentage_of_pass7_hod = p7
+                        form.Percentage_of_pass8_hod = p8
                         form.Percent_over_601_hod = p61
                         form.Percent_over_602_hod = p62
                         form.Percent_over_603_hod = p63
                         form.Percent_over_604_hod = p64
+                        form.Percent_over_605_hod = p65
+                        form.Percent_over_606_hod = p66
+                        form.Percent_over_607_hod = p67
+                        form.Percent_over_608_hod = p68
                         form.c7HOD_Student_Feedback = c7HOD
                         form.c7P_Student_Feedback = c7HOD
                         form.a9HOD_score = a9HOD

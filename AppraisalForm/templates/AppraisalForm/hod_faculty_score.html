@@ -30,8 +30,8 @@
   </thead>
   <tbody>
     <tr>
-       <td rowspan="4"><h6><strong>1.a(Qn)</strong></h6></td>
-      <td rowspan="4">
+       <td rowspan="8"><h6><strong>1.a(Qn)</strong></h6></td>
+      <td rowspan="8">
         <h6>Sub Code of theory Subjects taught & No of Students.<br>
         % of pass<br>% of Students scoring ≥60%</h6></td>
       <td>{{ form.Sub_code1 }}</td>
@@ -62,6 +62,32 @@
              <td><input type="number" class="form-control" placeholder=">=60" name="pass64" value="{{ form.Percent_over_604_hod }}" /></td>
     </tr>
 
+    <tr>
+         <td>{{ form.Sub_code5 }}</td>
+            <td>{{ form.No_of_students5 }}</td>
+             <td><input type="number" class="form-control" placeholder="pass %" name="pass2" value="{{ form.Percentage_of_pass5_hod }}" /></td>
+             <td><input type="number" class="form-control" placeholder=">=60" name="pass62" value="{{ form.Percent_over_605_hod }}" /></td> 
+    </tr>
+
+     <tr>
+           <td>{{ form.Sub_code6 }}</td>
+            <td>{{ form.No_of_students6 }}</td>
+             <td><input type="number" class="form-control" placeholder="pass %" name="pass3" value="{{ form.Percentage_of_pass6_hod }}" /></td>
+             <td><input type="number" class="form-control" placeholder=">=60" name="pass63" value="{{ form.Percent_over_606_hod }}" /></td>
+    </tr>
+
+     <tr>
+           <td>{{ form.Sub_code7 }}</td>
+            <td>{{ form.No_of_students7 }}</td>
+             <td><input type="number" class="form-control" placeholder="pass %" name="pass4" value="{{ form.Percentage_of_pass7_hod }}" /></td>
+             <td><input type="number" class="form-control" placeholder=">=60" name="pass64" value="{{ form.Percent_over_607_hod }}" /></td>
+    </tr>
+    <tr>
+           <td>{{ form.Sub_code8 }}</td>
+            <td>{{ form.No_of_students8 }}</td>
+             <td><input type="number" class="form-control" placeholder="pass %" name="pass4" value="{{ form.Percentage_of_pass8_hod }}" /></td>
+             <td><input type="number" class="form-control" placeholder=">=60" name="pass64" value="{{ form.Percent_over_608_hod }}" /></td>
+    </tr>
          <tr>
             <td><h6><strong>1.b(Ql)</strong></h6></td>
           <td><h6>Student feedback (/40)</h6></td>
