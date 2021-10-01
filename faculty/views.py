@@ -386,7 +386,7 @@ def changePasswordhod(request):
             password = request.POST['password']
             faculty.Password = password
             faculty.save()
-            return redirect("/hod")
+            return redirect("/faculty_list")
         else:
             return redirect('/log-in')
     else:
@@ -400,7 +400,7 @@ def changePasswordprincipal(request):
             password = request.POST['password']
             faculty.Password = password
             faculty.save()
-            return redirect("/principal")
+            return redirect("/faculty_list_P")
         else:
             return redirect('/log-in')
     else:
