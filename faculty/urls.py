@@ -21,6 +21,7 @@ urlpatterns = [
     path('grade_list_P', views.grade_list_P),
     path('grade_pdf', views.grade_pdf, name='grade_pdf'),
     path('admin_faculty', views.admin_staff_list),
+    path('admin_faculty_form', views.admin_staff_sub_list, name='sub_list'),
     path('register', views.register),
     path('forgot_pwd/<str:user>',views.forgot_password, name='forgot_password'),
     path('reset_pwd/<str:user>',views.reset_password, name='reset_password'),
@@ -33,6 +34,7 @@ urlpatterns = [
     path('backup',views.backupapiscore),
     path('delete/<str:user>',views.delete_faculty, name='deletef'),
     path('deleteforms',views.delete_allforms, name='deleteforms'),
+    path('deleteform/<str:user>',views.admin_staff_sub_delete, name='deleteformfac'),
     path('delete_backup/<str:pk>',views.delete_backup_date, name='deletebackup'),
     path('delete_exp/<str:pk>',views.delete_exp_date, name='deleteexp'),
 ]

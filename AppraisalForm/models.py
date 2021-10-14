@@ -7,7 +7,10 @@ from faculty.models import *
 class AppraisalForm(models.Model):
 
     CATEGORY = (
-			('Basic Science and Humanities', 'Basic Science and Humanities'),
+			('Humanities', 'Humanities'),
+            ('Physics', 'Physics'),
+            ('Chemistry', 'Chemistry'),
+            ('Mathematics', 'Mathematics'),
 			('Mechanical Engineering', 'Mechanical Engineering'),
             ('Civil Engineering', 'Civil Engineering'),
             ('Computer Science and Engineering', 'Computer Science and Engineering'),
@@ -160,7 +163,6 @@ class AppraisalForm(models.Model):
         validators=[MaxValueValidator(30), MinValueValidator(0)])
 
     def avg_of_passpercent_hod(self):
-        if self.a7HOD_score == 0:
 
             if self.Percentage_of_pass2_hod == 0 and self.Percentage_of_pass3_hod == 0 and self.Percentage_of_pass4_hod == 0 and self.Percentage_of_pass5_hod == 0 and self.Percentage_of_pass6_hod == 0 and self.Percentage_of_pass7_hod == 0 and self.Percentage_of_pass8_hod == 0:
                 p1 = ((self.Percentage_of_pass1_hod*0.01)*30)
@@ -223,11 +225,8 @@ class AppraisalForm(models.Model):
                 self.a7HOD_score = (p1 + p2 + p3 + p4 + p5 + p6 + p7 + p8) / 8
                 self.a7P_score = self.a7HOD_score
             return self.a7HOD_score,self.a7P_score
-        else:
-            return 
 
     def avg_of_passpercent_over60_hod(self):
-        if self.b7HOD_score == 0:
             if self.Percent_over_602_hod == 0 and self.Percent_over_603_hod == 0 and self.Percent_over_604_hod == 0 and self.Percent_over_605_hod == 0 and self.Percent_over_606_hod == 0 and self.Percent_over_607_hod == 0 and self.Percent_over_608_hod == 0:
                 p601 = ((self.Percent_over_601_hod/self.Percentage_of_pass1_hod)*40)
                 self.b7HOD_score = p601
@@ -289,11 +288,8 @@ class AppraisalForm(models.Model):
                 self.b7HOD_score = (p601 + p602 + p603 + p604 + p605  + p606 + p607 + p608) / 8
                 self.b7P_score = self.b7HOD_score
             return self.b7HOD_score,self.b7P_score  
-        else:
-            return 
 
     def avg_of_passpercent(self):
-        if self.a7_Sub_Code_of_theory_Subjects_taught_and_No_of_Students_score == 0:
             if self.Percentage_of_pass2 == 0 and self.Percentage_of_pass3 == 0 and self.Percentage_of_pass4 == 0 and self.Percentage_of_pass5 == 0 and self.Percentage_of_pass6 == 0 and self.Percentage_of_pass7 == 0 and self.Percentage_of_pass8 == 0:
                 p1 = ((self.Percentage_of_pass1*0.01)*30)
                 self.a7_Sub_Code_of_theory_Subjects_taught_and_No_of_Students_score = p1 
@@ -347,11 +343,8 @@ class AppraisalForm(models.Model):
                 p8 = ((self.Percentage_of_pass8*0.01)*30)
                 self.a7_Sub_Code_of_theory_Subjects_taught_and_No_of_Students_score = (p1 + p2 + p3 + p4 + p5 + p6 + p7 + p8) / 8
             return self.a7_Sub_Code_of_theory_Subjects_taught_and_No_of_Students_score
-        else:
-            return 
 
     def avg_of_passpercent_over60(self):
-        if self.b7_Percentage_of_Students_scoring_gt_60_score == 0:
             if self.Percent_over_602 == 0 and self.Percent_over_603 == 0 and self.Percent_over_604 == 0 and self.Percent_over_605 == 0 and self.Percent_over_606 == 0 and self.Percent_over_607 == 0 and self.Percent_over_608 == 0:
                 p601 = ((self.Percent_over_601/self.Percentage_of_pass1)*40)
                 self.b7_Percentage_of_Students_scoring_gt_60_score = p601 
@@ -405,9 +398,6 @@ class AppraisalForm(models.Model):
                 p608 = ((self.Percent_over_608/self.Percentage_of_pass8)*40)
                 self.b7_Percentage_of_Students_scoring_gt_60_score = (p601 + p602 + p603 + p604 + p605  + p606 + p607 + p608) / 8
             return self.b7_Percentage_of_Students_scoring_gt_60_score 
-        else:
-            return
-
     #NO BSH
 
     a8_No_of_projects_guided_score = models.IntegerField(
@@ -491,14 +481,10 @@ class AppraisalForm(models.Model):
 
     def save(self,*args, **kwargs):
 
-        if self.a7_Sub_Code_of_theory_Subjects_taught_and_No_of_Students_score == 0:
-            self.avg_of_passpercent()
-        if self.b7_Percentage_of_Students_scoring_gt_60_score == 0:
-            self.avg_of_passpercent_over60()
-        if self.a7HOD_score == 0:
-            self.avg_of_passpercent_hod()
-        if self.b7HOD_score == 0:
-            self.avg_of_passpercent_over60_hod()
+        self.avg_of_passpercent()
+        self.avg_of_passpercent_over60()
+        self.avg_of_passpercent_hod()
+        self.avg_of_passpercent_over60_hod()
 
         self.Part1APIscore = (int(self.a7_Sub_Code_of_theory_Subjects_taught_and_No_of_Students_score) + int(self.b7_Percentage_of_Students_scoring_gt_60_score) + int(self.c7_Student_Feedback) + 
                     int(self.a9_No_of_conferences_or_workshops_or_Seminars_or_training_programs_or_etc_FDPs_attended_score) + int(self.b9_Use_of_ICT_in_TLP_score) + 

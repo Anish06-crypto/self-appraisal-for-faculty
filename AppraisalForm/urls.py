@@ -7,10 +7,13 @@ urlpatterns = [
     path('appraisalform/', views.AppraisalForm_create, name='create_form'),
     path('appraisalform2/', views.AppraisalForm2_create, name='create_form2'),
     path('appraisalform3/', views.AppraisalForm3_create, name='create_form3'),
+    path('grandcalcscore/',views.grandscorecalc, name='grandcalcscore'),
     
     path('appraisalform_hodcreate/', views.AppraisalForm_HODcreate,name='create_formhod'),
     path('appraisalform2_hodcreate/', views.AppraisalForm2_hodcreate, name='create_form2hod'),
     path('appraisalform3_hodcreate/', views.AppraisalForm3_hodcreate, name='create_form3hod'),
+    path('hodcomplete/', views.AppraisalForm_HODcomplete,name='comp_formhod'),
+    path('grandcalcscoreH/',views.grandscorecalcH, name='grandcalcscoreH'),
     
     path('appraisalform_hodscore/<str:user>', views.AppraisalForm_HODscores, name='staff_edit'),
     path('appraisalform_hodscore2/<str:user>', views.AppraisalForm2_HODscores, name='staff_edit2'),

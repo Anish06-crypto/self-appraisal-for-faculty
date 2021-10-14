@@ -91,7 +91,7 @@ def login(request):
         if PersonalDetail.objects.filter(Staff_ID=staff_id).exists():
             faculty = PersonalDetail.objects.filter(Staff_ID=staff_id)[0]
             if faculty.Password == password and (PersonalDetail.objects.filter(Staff_ID=staff_id,Present_Designation='Assistant Professor').exists() 
-                or PersonalDetail.objects.filter(Staff_ID=staff_id,Present_Designation='Associate Professor').exists()):  
+                or PersonalDetail.objects.filter(Staff_ID=staff_id,Present_Designation='Associate Professor').exists()) or PersonalDetail.objects.filter(Staff_ID=staff_id,Present_Designation='Professor').exists():  
                 if GrandApiScores.objects.filter(user=staff_id).exists():
                     request.session['faculty'] = faculty.Staff_ID
                     faculty = PersonalDetail.objects.get(Staff_ID=request.session['faculty'])
@@ -110,9 +110,9 @@ def login(request):
                     request.session.set_expiry(3000)
                     return redirect('/AppraisalForm/appraisalform/')
             elif faculty.Password == password and PersonalDetail.objects.filter(Staff_ID=staff_id,Whether_HOD=True).exists():
-                request.session['hod'] = faculty.Staff_ID
-                request.session.set_expiry(3000)
-                return redirect('/faculty_list')
+                    request.session['hod'] = faculty.Staff_ID
+                    request.session.set_expiry(3000)
+                    return redirect('/faculty_list')
             elif faculty.Password == password and PersonalDetail.objects.filter(Staff_ID=staff_id,Present_Designation='Principal').exists():
                 request.session['principal'] = faculty.Staff_ID
                 return redirect('/faculty_list_P')
@@ -177,11 +177,13 @@ def staff_list(request):
             tle = AppraisalForm.objects.all()
             staff = PersonalDetail.objects.get(Staff_ID=hod_id)
             tlecount = AppraisalForm.objects.filter(department=hod.Department, submitted_Faculty=True).count()
+            gapi = GrandApiScores.objects.filter(user=hod_id)
             context = {'staffs': staffs, 
                         'hod': hod,
                         'tle' : tle,
                         'tlecount' : tlecount,
-                        "staff":staff}
+                        "staff":staff,
+                        "hodg" : gapi }
             return render(request, 'Users/faculty_list.html', context)
 
 def staff_list_hod_score(request):
@@ -191,8 +193,10 @@ def staff_list_hod_score(request):
             hod = PersonalDetail.objects.filter(Staff_ID=hod_id)[0]
             staff = PersonalDetail.objects.get(Staff_ID=hod_id)
             tle = GrandApiScores.objects.all()
+            gapi = GrandApiScores.objects.filter(user=hod_id)
             context = { 'hod': hod,
-                        'tle' : tle, 'staff':staff}
+                        'tle' : tle, 'staff':staff,
+                        "hodg" : gapi}
             return render(request, 'Users/hod_dept_faculty_scores.html', context)
 
 def staff_list_P(request):
@@ -264,10 +268,11 @@ def staff_list_total(request):
             staffs = PersonalDetail.objects.all()
             staff = PersonalDetail.objects.get(Staff_ID=hod_id)
             staffcount = PersonalDetail.objects.filter(Department=hod.Department, Whether_HOD=False).count()
-            
+            gapi = GrandApiScores.objects.filter(user=hod_id)
             context = {'staffs': staffs, 
                         'staffcount': staffcount,
-                        'hod': hod, 'staff':staff }
+                        'hod': hod, 'staff':staff,
+                        "hodg" : gapi }
             return render(request, 'Users/just_faculty.html', context)
 
 def admin_staff_list(request):
@@ -280,6 +285,51 @@ def admin_staff_list(request):
             
             context = {'staffs': staffs, 'ds':ds, 'es':es }
             return render(request, 'Users/admin_faculty_list.html', context)
+
+def admin_staff_sub_list(request):
+    if request.session.get('admin',False):
+        admin = request.session['admin']
+        if PersonalDetail.objects.filter(Staff_ID=admin).exists():
+            staffs = AppraisalForm.objects.all()
+            
+            context = {'staffs': staffs }
+            return render(request, 'Users/admin_f_submitted.html', context)
+
+def admin_staff_sub_delete(request,user):
+    if request.session.get('admin',False):
+        admin = request.session['admin']
+        if PersonalDetail.objects.filter(Staff_ID=admin).exists():
+            if AppraisalForm.objects.filter(user=user).exists():
+                apf1 = AppraisalForm.objects.get(user=user)
+                apf1.delete()
+            elif AppraisalForm.objects.filter(user=user).exists() and AppraisalForm2.objects.filter(user=user).exists():
+                apf1 = AppraisalForm.objects.get(user=user)
+                apf2 = AppraisalForm2.objects.get(user=user)
+                apf1.delete()
+                apf2.delete()
+            elif AppraisalForm.objects.filter(user=user).exists() and AppraisalForm2.objects.filter(user=user).exists() and AppraisalForm3.objects.filter(user=user).exists():
+                apf1 = AppraisalForm.objects.get(user=user)
+                apf2 = AppraisalForm2.objects.get(user=user)
+                apf3 = AppraisalForm3.objects.get(user=user)
+                apf1.delete()
+                apf2.delete()
+                apf3.delete()
+            elif AppraisalForm.objects.filter(user=user).exists() and AppraisalForm2.objects.filter(user=user).exists() and AppraisalForm3.objects.filter(user=user).exists() and GrandApiScores.objects.filter(user=user).exists():
+                apf1 = AppraisalForm.objects.get(user=user)
+                apf2 = AppraisalForm2.objects.get(user=user)
+                apf3 = AppraisalForm3.objects.get(user=user)
+                gapi = GrandApiScores.objects.get(user=user)
+                apf1.delete()
+                apf2.delete()
+                apf3.delete()
+                gapi.delete()
+            messages.success(request,'Faculty form deleted.')
+            return redirect('/admin_faculty_form') 
+        else:
+            return redirect('/log-in')
+    else:
+        return redirect('/log-in')
+
 
 def forgot_password(request,user):
     if request.session.get('admin',False):

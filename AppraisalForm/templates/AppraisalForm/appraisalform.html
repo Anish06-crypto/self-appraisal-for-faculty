@@ -165,7 +165,7 @@
 
 <!-- bsh check condition -->
 
-{% if check.Department == "Basic Science and Humanities" %}
+{% if check.Department == "Humanities" or check.Department == "Physics" or check.Department == "Chemistry" or check.Department == "Mathematics" %}
 
 	<div class="card">
  <div class="card-body">
@@ -278,9 +278,10 @@
 </div>
 
 {% endif %}
-
-<button type="submit" class="btn btn-dark" style="float:right" >Submit</button>
+<div class="text-center">
+<button type="submit" class="btn btn-dark" >Save</button>
 </form>
+<a href="{% url 'create_form2' %}" class="btn btn-info">Next<a/></div>
 
 {% block style %}
 

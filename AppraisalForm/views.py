@@ -26,7 +26,7 @@ def AppraisalForm_create(request):
                     if request.method == "GET":
                         return render(request, "AppraisalForm/appraisalformedit.html",contextedit)
                     if request.method == "POST":
-                        if check.Department == "Basic Science and Humanities":
+                        if check.Department == "Humanities" or check.Department == "Physics" or check.Department == "Chemistry" or check.Department == "Mathematics":
                                 sub1 = request.POST['sub1']
                                 sub2 = request.POST['sub2']
                                 sub3 = request.POST['sub3']
@@ -261,7 +261,7 @@ def AppraisalForm_create(request):
                     if request.method == "POST":
                         user = Staff_ID
         
-                        if check.Department == "Basic Science and Humanities":
+                        if check.Department == "Humanities" or check.Department == "Physics" or check.Department == "Chemistry" or check.Department == "Mathematics":
                                 ay = request.POST['a_year']
                                 sub1 = request.POST['sub1']
                                 sub2 = request.POST['sub2']
@@ -531,7 +531,7 @@ def AppraisalForm3_create(request):
                         staffedit.a15file = a15file   
 
                         staffedit.save()
-                        return grandscorecalc(request)                  
+                        return render(request, "AppraisalForm/appraisalformedit3.html",contextedit)                 
                 else:
                     if request.method == "GET":
                         return render(request, "AppraisalForm/appraisalform3.html",context)
@@ -553,7 +553,7 @@ def AppraisalForm3_create(request):
                         apf3 = AppraisalForm3(user=Staff_ID,department=check.Department,designation=check.Present_Designation,name=check.Name,academic_year=ay,submitted_Faculty=True,a13=a13,b13=b13,c13=c13,d13=d13,e13=e13,
                                             f13=f13,a14=a14,b14=b14,c14=c14,a15=a15,c14file=c14file,a15file=a15file)
                         apf3.save()
-                        return grandscorecalc(request)
+                        return redirect('/AppraisalForm/appraisalform3/')
             except:
                 messages.warning(request, 'You need to upload all files before submission.')
                 return redirect('/AppraisalForm/appraisalform3/') 
@@ -613,6 +613,23 @@ def grandscorecalc(request):
 
 #Hod_createform
 
+def AppraisalForm_HODcomplete(request):
+    if request.session.get('hod', False):
+        staff_id = request.session['hod']
+        staff = PersonalDetail.objects.get(Staff_ID=staff_id)
+        gapi = GrandApiScores.objects.filter(user=staff_id)
+        apf = AppraisalForm.objects.get(user=staff_id)
+        apf2 = AppraisalForm2.objects.get(user=staff_id)
+        apf3 = AppraisalForm3.objects.get(user=staff_id)
+        gapi = GrandApiScores.objects.get(user=staff_id)
+        context = { "apf" : apf,
+                    "apf2" : apf2,
+                    "apf3" : apf3,
+                    "gapi" : gapi,
+                    "staff":staff,
+                    "hodg" : gapi }      
+    return render(request, "Users/hod_score.html",context)
+
 def AppraisalForm_HODcreate(request):
     if request.session.get('hod', False):
         Staff_ID = request.session['hod']
@@ -626,14 +643,15 @@ def AppraisalForm_HODcreate(request):
                 if AppraisalForm.objects.filter(user=Staff_ID).exists():
                     staffedit = AppraisalForm.objects.get(user=Staff_ID)
                     staff = PersonalDetail.objects.get(Staff_ID=Staff_ID)
+                    gapi = GrandApiScores.objects.filter(user=Staff_ID)
                     contextedit = {
                         'staffedit':staffedit,
-                        'staff' : staff
+                        'staff' : staff, "hodg" : gapi
                     }
                     if request.method == "GET":
                         return render(request, "AppraisalForm/appraisalformedithod.html",contextedit)
                     if request.method == "POST":
-                        if check.Department == "Basic Science and Humanities":
+                        if check.Department == "Humanities" or check.Department == "Physics" or check.Department == "Chemistry" or check.Department == "Mathematics":
                                 sub1 = request.POST['sub1']
                                 sub2 = request.POST['sub2']
                                 sub3 = request.POST['sub3']
@@ -832,7 +850,7 @@ def AppraisalForm_HODcreate(request):
                     if request.method == "POST":
                         user = Staff_ID
         
-                        if check.Department == "Basic Science and Humanities":
+                        if check.Department == "Humanities" or check.Department == "Physics" or check.Department == "Chemistry" or check.Department == "Mathematics":
                                 ay = request.POST['a_year']
                                 sub1 = request.POST['sub1']
                                 sub2 = request.POST['sub2']
@@ -1098,7 +1116,7 @@ def AppraisalForm3_hodcreate(request):
                         staffedit.a15file = a15file   
 
                         staffedit.save()
-                        return grandscorecalcH(request)                  
+                        return render(request, "AppraisalForm/appraisalformedit3hod.html",contextedit)                 
                 else:
                     if request.method == "GET":
                         return render(request, "AppraisalForm/appraisalform3_hod.html",context)
@@ -1120,7 +1138,7 @@ def AppraisalForm3_hodcreate(request):
                         apf3 = AppraisalForm3(user=Staff_ID,department=check.Department,designation=check.Present_Designation,name=check.Name,academic_year=ay,submitted_Faculty=True,submitted_HOD=True,whether_HOD=True,a13=a13,b13=b13,c13=c13,d13=d13,e13=e13,
                                             f13=f13,a14=a14,b14=b14,c14=c14,a15=a15,c14file=c14file,a15file=a15file)
                         apf3.save()
-                        return grandscorecalcH(request)
+                        return redirect('/AppraisalForm/appraisalform3_hodcreate/')
             except:
                 messages.warning(request, 'You need to upload all files before submission.')
                 return redirect('/AppraisalForm/appraisalform3_hodcreate/')  
@@ -1193,7 +1211,7 @@ def AppraisalForm_HODscores(request, user):
                 if request.method == "GET":
                     return render(request, 'AppraisalForm/hod_faculty_score.html', context)
                 if request.method == "POST":
-                    if dept.Department == "Basic Science and Humanities":
+                    if dept.Department == "Humanities" or dept.Department == "Physics" or dept.Department == "Chemistry" or dept.Department == "Mathematics":
                         p1 = int(float(request.POST['pass1']))
                         p2 = int(float(request.POST['pass2']))
                         p3 = int(float(request.POST['pass3']))
@@ -1676,7 +1694,7 @@ def AppraisalForm_Pscores(request, user):
                 if request.method == "GET":
                     return render(request, 'AppraisalForm/principal_faculty_score.html', context)
                 if request.method == "POST":
-                    if dept.Department == "Basic Science and Humanities":
+                    if dept.Department == "Humanities" or dept.Department == "Physics" or dept.Department == "Chemistry" or dept.Department == "Mathematics":
                         a7P = request.POST['a7P']
                         b7P = request.POST['b7P']
                         c7P = request.POST['c7P']

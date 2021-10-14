@@ -74,12 +74,22 @@
 								<p>Dashboard</p>
 							</a>
 						</li> {% endcomment %}
+						{% if hodg %}
+							<li class="nav-item">
+								<a href="/AppraisalForm/hodcomplete/">
+									<i class="la la-keyboard-o"></i>
+									<p>Appraisal Form Score</p>
+								</a>
+							</li>
+						{% endif %}		
+										
 						<li class="nav-item">
 							<a href="/AppraisalForm/appraisalform_hodcreate/">
 								<i class="la la-keyboard-o"></i>
 								<p>Appraisal Form</p>
 							</a>
 						</li>
+
             			<li class="nav-item">
 							<a href="/faculty_list">
 								<i class="la la-table"></i>
